@@ -1,0 +1,296 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+\definecolor{myblue}{HTML}{1f77b4}
+\definecolor{myorange}{HTML}{ff7f0e}
+\definecolor{mygreen}{HTML}{2ca02c}
+\definecolor{myred}{HTML}{d62728}
+\definecolor{mypurple}{HTML}{9467bd}
+\definecolor{mybrown}{HTML}{8c564b}
+\definecolor{mypink}{HTML}{e377c2}
+\definecolor{mygray}{HTML}{7f7f7f}
+\definecolor{myolive}{HTML}{bcbd22}
+\definecolor{mycyan}{HTML}{17becf}
+\newcommand{\bluebullet}{\textcolor{blue!30}{\bullet}}
+\newcommand{\magentabullet}{\textcolor{magenta!50}{\bullet}}
+\newcommand{\graybullet}{\textcolor{gray!50}{\bullet}}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\newcommand{\chordalone}{
+\begin{tikzpicture}[scale=.35, every node/.style={scale=.625}]
+    \centering
+\tikzset{mystyle/.style={ellipse, draw=black, minimum size=.05cm}}
+\foreach \n in {0,...,3}{
+        \node[mystyle] (\n) at (360/4*\n+90:1) {};
+    }
+    \foreach \n[count=\m] in {0,...,2}{
+        \draw (\n) -- (\m);
+    }
+    \draw (3) -- (0);
+    \draw (2) -- (0);
+\end{tikzpicture}
+}
+\newcommand{\chordaltwo}{
+\begin{tikzpicture}[scale=.35, every node/.style={scale=.625}]
+    \centering
+\tikzset{mystyle/.style={ellipse, draw=black, minimum size=.05cm}}
+\foreach \n in {0,...,4}{
+        \node[mystyle] (\n) at (360/5*\n+90:1) {};
+    }
+    \foreach \n[count=\m] in {0,...,3}{
+        \draw (\n) -- (\m);
+    }
+    \draw (4) -- (0);
+    \draw (2) -- (0);
+    \draw (3) -- (0);
+\end{tikzpicture}
+}
+
+\newcommand{\chordalthree}{
+\begin{tikzpicture}[scale=.35, every node/.style={scale=.625}]
+    \centering
+\tikzset{mystyle/.style={ellipse, draw=black, minimum size=.05cm}}
+\foreach \n in {0,...,5}{
+        \node[mystyle] (\n) at (360/6*\n+90:1) {};
+    }
+    \foreach \n[count=\m] in {0,...,4}{
+        \draw (\n) -- (\m);
+    }
+    \draw (5) -- (0);
+    \draw (2) -- (4);
+    \draw (1) -- (5);
+\end{tikzpicture}
+}
+\newcommand{\chordalfour}{
+\begin{tikzpicture}[scale=.35, every node/.style={scale=.625}]
+    \centering
+\tikzset{mystyle/.style={ellipse, draw=black, minimum size=.05cm}}
+\foreach \n in {0,...,5}{
+        \node[mystyle] (\n) at (360/6*\n+90:1) {};
+    }
+    \foreach \n[count=\m] in {0,...,4}{
+        \draw (\n) -- (\m);
+    }
+    \draw (5) -- (0);
+    \draw (0) -- (2) -- (4) -- (0);
+\end{tikzpicture}
+}
+
+\newcommand{\cycle}[1]{
+\begin{tikzpicture}[scale=.35, every node/.style={scale=.625}]
+    \centering
+\tikzset{mystyle/.style={ellipse, draw=black, minimum size=.05cm}}
+\foreach \n in {0,...,\numexpr#1-1}{
+        \node[mystyle] (\n) at (360/#1*\n+90:1) {};
+    }
+    \foreach \n[count=\m] in {0,...,\numexpr#1-2}{
+        \draw (\n) -- (\m);
+    }
+    \draw (\the\numexpr#1-1) -- (0);
+\end{tikzpicture}
+}
+
+\newcommand{\edges}{\mathcal{E}}
+\newcommand{\vertices}{\mathcal{V}}
+\newcommand{\lWL}{$\ell{}$WL}
+\newcommand{\lmpnn}{$\ell{}$MPNN}
+\newcommand{\lgin}{$\ell{}$GIN}
+% \renewcommand*{\arraystretch}{1.2}
+% \setlength\arrayrulewidth{1pt}
+% \setlength\fboxsep{1pt}
+% \setul{1pt}{1pt}
+% \setulcolor{LMUgreen}
+%\renewcommand*{\glstextformat}[1]{\textcolor{myblue}{#1}} 
+ \defcitealias{zhangEndtoEndDeepLearning2018}{DGCNN}
+\newcommand{\dgcnn}{\citetalias{zhangEndtoEndDeepLearning2018}}
+\defcitealias{yingHierarchicalGraphRepresentation2018}{DiffPool}
+\newcommand{\diffpool}{\citetalias{yingHierarchicalGraphRepresentation2018}}
+\defcitealias{simonovskyDynamicEdgeConditionedFilters2017}{ECC}
+\newcommand{\ecc}{\citetalias{simonovskyDynamicEdgeConditionedFilters2017}}
+\defcitealias{xu*HowPowerfulAre2018}{GIN}
+\newcommand{\gin}{\citetalias{xu*HowPowerfulAre2018}}
+\defcitealias{hamiltonInductiveRepresentationLearning2017}{GraphSAGE}
+\newcommand{\graphsage}{\citetalias{hamiltonInductiveRepresentationLearning2017}}
+\defcitealias{velickovicGraphAttentionNetworks2018}{GAT}
+\newcommand{\gat}{\citetalias{velickovicGraphAttentionNetworks2018}}
+\defcitealias{abboudShortestPathNetworks2022}{SPN}
+\newcommand{\spn}{\citetalias{abboudShortestPathNetworks2022}}
+\defcitealias{sunHomophilyStructureawarePath2022}{PathNet}
+\newcommand{\pathnet}{\citetalias{sunHomophilyStructureawarePath2022}}
+\defcitealias{zhangNestedGraphNeural2021}{NestedGNN}
+\newcommand{\nestedgnn}{\citetalias{zhangNestedGraphNeural2021}}
+\defcitealias{michelPathNeuralNetworks2023a}{PathNN}
+\newcommand{\pathnn}{\citetalias{michelPathNeuralNetworks2023a}}
+\defcitealias{maronProvablyPowerfulGraph2019}{PPGN}
+\newcommand{\ppgn}{\citetalias{maronProvablyPowerfulGraph2019}}
+\defcitealias{balcilarBreakingLimitsMessage2021}{GNNML3}
+\newcommand{\gnnml}{\citetalias{balcilarBreakingLimitsMessage2021}}
+\defcitealias{huangBoostingCycleCounting2022}{I2-GNN}
+\newcommand{\itwognn}{\citetalias{huangBoostingCycleCounting2022}}
+\defcitealias{zhao2022from}{GNNAK+}
+\newcommand{\gnnak}{\citetalias{zhao2022from}}
+\defcitealias{youIdentityawareGraphNeural2021}{ID-GNN}
+\newcommand{\idgnn}{\citetalias{youIdentityawareGraphNeural2021}}
+\defcitealias{kipf2017semisupervised}{GCN}
+\newcommand{\gcn}{\citetalias{kipf2017semisupervised}}
+\defcitealias{bodnarWeisfeilerLehmanGo2021}{CIN}
+\newcommand{\cin}{\citetalias{bodnarWeisfeilerLehmanGo2021}}
+\defcitealias{9721082}{GSN}
+\newcommand{\gsn}{\citetalias{9721082}}
+\defcitealias{frascaUnderstandingExtendingSubgraph2022}{SUN}
+%\newcommand{\sun}{\citetalias{frascaUnderstandingExtendingSubgraph2022}}
+\defcitealias{lim2022sign}{SignNet}
+\newcommand{\signnet}{\citetalias{lim2022sign}}
+\defcitealias{zhou2023distancerestricted}{DRFWL}
+\newcommand{\drfwl}{\citetalias{zhou2023distancerestricted}}
+\defcitealias{FeyHIMP2020}{HIMP}
+\newcommand{\himp}{\citetalias{FeyHIMP2020}}
+\defcitealias{chenCanGraphNeural2020a}{Deep LRP}
+\newcommand{\lrp}{\citetalias{chenCanGraphNeural2020a}}
+\defcitealias{morrisWeisfeilerLemanGo2019}{1-2-3-GNN}
+\newcommand{\onetwothreegnn}{\citetalias{morrisWeisfeilerLemanGo2019}}
+\defcitealias{wu2018moleculenet}{DTNN}
+\newcommand{\dtnn}{\citetalias{wu2018moleculenet}}
+\defcitealias{monti2017geometric}{MoNet}
+\newcommand{\monet}{\citetalias{monti2017geometric}}
+\defcitealias{bresson2017residual}{GatedGCN}
+\newcommand{\gatedgcn}{\citetalias{bresson2017residual}}
+\defcitealias{qian2022ordered}{OSAN}
+\newcommand{\osan}{\citetalias{qian2022ordered}}
+
+\defcitealias{Hu*2020Strategies}{GINE}
+\newcommand{\gine}{\citetalias{Hu*2020Strategies}}
+
+
+\definecolor{LMUgreen}{RGB}{0,100,0}
+\newcommand{\first}[1]{\fcolorbox{LMUgreen}{LMUgreen!50}{#1}}
+\newcommand{\second}[1]{\fcolorbox{LMUgreen}{white}{#1}}
+\newcommand{\third}[1]{\ul{#1}}
+
+\begin{document}
+
+\begin{table*}[h!]
+    \centering
+    \caption{Test MAE for homomorphism- and subgraph-counts. Results from \citep{zhangWeisfeilerLehmanQuantitativeFramework2024}.}
+    \label{tab:subgraphcount}
+    {\footnotesize
+    \setlength\tabcolsep{5pt}
+    \begin{tabular}{cccccccccc}
+    \toprule
+        & \multicolumn{3}{c}{$hom(F, G)$} &\multicolumn{6}{c}{$sub(F, G)$}\\
+        \cmidrule(lr){2-4} \cmidrule(rl){5-10}
+         Model & \chordalone & \chordalthree & \chordalfour & \cycle{3} & \cycle{4} & \cycle{5} & \cycle{6} & \chordalone & \chordaltwo\\
+    \cmidrule(lr){1-1}\cmidrule(rl){2-4} \cmidrule(rl){5-10}
+MPNN & 0.300 & 0.233 & 0.254 & 0.358 & 0.208 & 0.188 & 0.146 & 0.261 & 0.205\\
+Subgraph GNN & 0.011 & 0.015 & 0.012 & 0.010 & 0.020 & 0.024 & 0.046 & 0.007 & 0.027 \\
+Local 2-GNN & 0.008 & 0.008 & 0.010 & 0.008 & 0.011 & 0.017 & 0.034 & 0.007 & 0.016 \\
+Local 2-FGNN & 0.003 & 0.005 & 0.004 & 0.003 & 0.004 & 0.010 & 0.020 & 0.003 & 0.010 \\
+    \cmidrule(lr){1-1}\cmidrule(rl){2-4} \cmidrule(rl){5-10}
+$r$-$\ell$GIN & \makecell{0.001\\(r=2)} &\makecell{0.006\\(r=3)} & \makecell{0.009\\(r=3)} & \makecell{0.0005\\(r=1)} & \makecell{0.0005\\(r=2)} & \makecell{0.0003\\(r=3)} & \makecell{0.0003\\(r=4)} & \makecell{0.001 \\(r=2)}& \makecell{0.0004\\(r=3)}\\
+\bottomrule
+    \end{tabular}
+}
+\end{table*}
+
+\begin{table*}[ht]
+\centering
+\caption{Normalized test MAE ($\downarrow$) on QM9 dataset. Top three models as  \first{$1^{\text{st}}$}, \second{$2^{\text{nd}}$}, \third{$3^{\text{rd}}$}.}
+\label{tab:qm9}
+{\footnotesize
+\setlength\tabcolsep{3pt}
+\begin{tabular}{lcccccccccc}
+\toprule
+& \multicolumn{8}{c}{Model}\\
+\cmidrule{2-9}
+Target & 1-GNN & 1-1-2GNN & 1-1-2GNN & 1-1-2GNN & 1-1-2GNN & 1-1-2GNN & 1-1-2GNN & $5$-\lgin{} \\
+\midrule
+$\mu$ & 0.493 & 0.476 & \first{0.244} & 0.364 & 0.428 & 0.428 & \second{0.346} & \third{0.350} {\tiny$\pm 0.011$}
+\\
+$\alpha$ & 0.78 & 0.27 & 0.95 & 0.298 & 0.290 & \third{0.230} & \second{0.222} & \first{0.217} {\tiny$\pm 0.025$}
+\\
+$\varepsilon_{\mathrm{homo}}$ & 0.00321 & 0.00337 & 0.00388 & \third{0.00254} & 0.00265 & 0.00261 & \second{0.00226} & \first{0.00205} {\tiny$\pm 0.00005$}
+\\
+$\varepsilon_{\mathrm{lumo}}$ & 0.00355 & 0.00351 & 0.00512 & 0.00277 & 0.00297 & \third{0.00267} & \second{0.00225} & \first{0.00216}  {\tiny$\pm 0.00004$}
+\\
+$\Delta(\varepsilon)$ & 0.0049 & 0.0048 & 0.0112 & \third{0.00353} & 0.0038 & 0.0038 & \second{0.00324} & \first{0.00321} {\tiny$\pm 0.00014$}
+\\
+$R^2$ & 34.1 & 22.9 & \third{17.0} & 19.3 & 20.5 & 18.64 & \second{15.04} & \first{13.21} {\tiny$\pm 0.19$}
+\\
+$\mathrm{ZVPE}$ & 0.00124 & 0.00019 & 0.00172 & 0.00055 & 0.0002 & \third{0.00014} & \second{0.00017} & \first{0.000127} {\tiny$\pm 0.000003$}
+\\
+$U_0$ & 2.32 & 0.0427 & 2.43 & 0.413 & 0.295 & \third{0.211} & \second{0.156} & \first{0.0418} {\tiny$\pm 0.0520$}
+\\
+$U$ & 2.08 & \second{0.111} & 2.43 & 0.413 & 0.361 & 0.206 & \third{0.153} & \first{0.023} {\tiny$\pm 0.023$}
+\\
+$H$ & 2.23 & \second{0.0419} & 2.43 & 0.413 & 0.305 & 0.269 & \third{0.145} & \first{0.0352}  {\tiny$\pm 0.0304$}
+\\
+$G$ & 1.94 & \second{0.0469} & 2.43 & 0.413& 0.489 & 0.261 & \third{0.156} & \first{0.0118} {\tiny$\pm 0.0015$}
+\\
+$C_v$ & 0.27 & 0.0944 & 2.43 & 0.129 & 0.174 & \second{0.0730} & \third{0.0901} & \first{0.0702} {\tiny$\pm 0.0024$}
+\\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\end{document}

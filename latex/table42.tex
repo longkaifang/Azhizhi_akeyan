@@ -1,0 +1,164 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{colortbl}
+
+\definecolor{myred}{RGB}{174, 35, 23}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\pink}[1]{\textcolor{magenta}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\newcommand{\violet}[1]{\textcolor{violet}{#1}}
+\newcommand{\darkGreen}[1]{\textcolor{darkGreen}{#1}}
+\newcommand{\myblue}[1]{\textcolor{myblue}{#1}}
+\newcommand{\myred}[1]{\textcolor{myred}{#1}}
+\newcommand{\darkblue}[1]{\textcolor{darkblue}{#1}}
+\newcommand{\yuhang}[1]{\textcolor{red}{[ToDo: #1]}}
+\newcommand{\hgreen}[1]{\textcolor{ForestGreen}{#1}} % highlight color
+\newcommand{\hblue}[1]{\textcolor{NavyBlue}{\textbf{#1}}} % highlight color
+\newcommand{\LeftComment}[1]{%
+    \Statex \hspace{-\algorithmicindent} \(\triangleright\) \textit{#1}%
+}
+\definecolor{summary_color}{HTML}{C7E1F6} % Light Blue
+\definecolor{perception_color}{HTML}{B7D6C7}    % Light Green
+\definecolor{reasoning_color}{HTML}{D4D4FF}     % Light Purple
+\definecolor{navigation_color}{HTML}{FFDE9A}     % Light Yellow
+\begin{document}
+
+\definecolor{front-color}{HTML}{F5FFFA}
+\begin{table*}[tp]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\setlength\tabcolsep{1pt}
+ \resizebox{1.0\textwidth}{!}{
+\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c} \Xhline{1.0pt}
+\textbf{Models} & \textbf{\#Frames} & \textbf{Param} & \textbf{TFLOPs} & \textbf{Narra.} & \textbf{Event} & \textbf{Ingre.} & \textbf{Causal} & \textbf{Theme} & \textbf{Conte.} & \textbf{Influ.} & \textbf{Role} & \textbf{Inter.} & \textbf{Behav.} & \textbf{Emoti.} & \textbf{Cook.} & \textbf{Traff.} & \textbf{Situa.} & \textbf{Avg.} \\
+\midrule \rowcolor{Gray}
+\multicolumn{19}{c}{\textit{Closed-source LVLMs}} \\ \midrule
+GPT-4o~\cite{openai2024gpt4o} & FPS=3 & - & - &32.3  & 16.7  & 25.5  & 22.8  & 32.8  & 27.5  & 37.5  & 28.6  & 24.2  & 19.3  & 30.8  & 30.2  & 20.0  & 22.0  & 26.4  \\
+Qwen-VL-Max~\cite{Qwen-VL} & FPS=3 & - & - &33.9  & 22.4  & 23.5  & 21.4  & 26.2  & 30.3  & 41.7  & 30.2  & 27.4  & 26.3  & 20.0  & 20.8  & 16.7  & 24.0  & 26.0  \\ \midrule \rowcolor{Gray}
+\multicolumn{19}{c}{\textit{Opened-source LVLMs}} \\ \midrule
+LLaVA-1.5~\cite{liu2023llava15} & 4 & 7B & 14.50 & 32.3  & 21.3  & 19.4  & 17.1  & 26.2  & 20.2  & 36.1  & 33.3  & 21.0  & 21.1  & 20.0  & 35.8  & 16.7  & 18.0  & 24.2  \\
+InternVL2~\cite{chen2023internvl} & FPS=1 & 8B & 73.23 & 33.9  & 24.1  & 27.6  & 24.4  & \textbf{42.6}  & 33.0  & 45.8  & 28.6  & 19.4  & 22.8  & 21.5  & 34.0  & 20.0  & 24.0  & 28.7  \\
+LLaVA-N-Inter~\cite{li2024llava} & FPS=1 & 7B & 62.78 &24.2  & 23.6  & 26.5  & 19.2  & 31.1  & 32.1  & 31.9  & 17.5  & 24.2  & 21.1  & 26.2  & 30.2  & 13.3  & 20.0  & 24.4  \\
+        Qwen2-VL~\cite{Qwen-VL} & FPS=1 & 7B & 64.60 &27.4 & 23.0 & 24.5 & 23.5 & 29.5 & 31.2 & 47.2 & 31.7 & 22.6 & 28.1 & 40.0 & 22.6 & 30.0 & 18.0 & 28.5 \\
+        LongVA-DPO~\cite{zhang2024longva} & 128 & 7B & 465.4 &35.5  & 14.9  & 16.3  & 19.0  & 34.4  & 22.0  & 37.5  & 23.8  & 29.0  & 22.8  & 20.0  & \textbf{37.7}  & 16.7  & 12.0  & 24.4  \\
+        mPLUG-Owl3~\cite{ye2024mplug} & FPS=1 & 7B & 89.78   &30.6  & 23.6  & 20.4  & 22.3  & 37.7  & 29.4  & 48.6  & 34.9  & 30.6  & 24.6  & 27.7  & 24.5  & 13.3  & 24.0  & 28.0  \\
+        LLaVA-N-Video~\cite{zhang2024llavanextvideo} & FPS=1 &7B & 60.42 & 31.2 & 20.2 & 16.2 & 17.6 & 36.5 & 32.7 & 30.6 & 24.5 & 26.4 & 24.5 & 34.7 & 20.8 & 20.3 & 17.0 & 25.2 \\
+        \hline
+       Ours & 2.36 & 8.5B & \textbf{9.26} &\textbf{45.2} & \textbf{27.0} & \textbf{33.7} & \textbf{26.1} & 39.3 & \textbf{36.7} & \textbf{55.6} & \textbf{41.3} & \textbf{30.6} & \textbf{29.8} & \textbf{30.8} & 35.8 & \textbf{20.0} & \textbf{26.0} & \textbf{34.1}  \\
+       \bottomrule
+        \end{tabular} } \vspace{-0.2cm}
+\caption{ \textbf{Main Result on Our Objective Benchmark.} We report results of closed-source and opened-source LVLMs}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\begin{minipage}[t][3cm][t]{0.23\linewidth}
+\small
+\centering
+\begin{adjustbox}{width=0.9\linewidth}
+\begin{tabular}{@{}lc@{}}
+\toprule
+~\textbf{Setting} & \textbf{Acc.}\\
+\midrule
+~baseline & 34.13 \\
+~GT-CoT & $72.95_{\hgreen{+38.82}}$ \\
+~w/o Bbox & $33.14_{\myred{-0.99}}$ \\
+~w/o CoT & $31.32_{\myred{-2.81}}$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\vspace{-1mm}
+\caption{\textbf{Ablation Studies on different CoT strategies.} \textit{GT} is 'ground truth'.}
+\vspace{-8pt}
+\label{table:ablation}
+\end{minipage}\hspace{-2mm}
+\hfill
+\begin{minipage}[t][3cm][t]{0.68\linewidth}
+\small
+\centering
+\begin{adjustbox}{width=0.9\linewidth}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\textbf{Selector} & \textbf{\#Frame} & \textbf{Add.}  & \textbf{GPU hr.} & \textbf{Inference Memory} & \textbf{Acc.}\\ \midrule
+Uniform & 8 & - & - & 0G + 14G + 40G & $33.74$ \\
+GT & 2.98 & - & -  & 0G + 14G +15G & $37.54_{\hgreen{+3.80}}$ \\
+1B/1.5B & 2.77 & 2.5B & 1.33 & \myred{5G} +14G +\hgreen{14G} & $34.76_{\hgreen{+1.02}}$ \\
+1B/0.5B & 2.36 & 1.5B & 0.37 & \myred{3G} +14G +\hgreen{12G} & $34.13_{\hgreen{+0.29}}$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\vspace{-1mm}
+\caption{\textbf{Ablation studies on Selector.} GT refers to the ground truth time of the core frames annotation. ``1B/1.5B" represents the selector consists of InternVL2-1B and QwenLM-1.5B, and similarly for ``1B/0.5B". Add. stands for additional parameters.}
+\label{table:selector}
+\end{minipage}
+\vspace{26pt}
+\end{table*}
+
+\end{document}
