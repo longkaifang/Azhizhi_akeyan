@@ -1,0 +1,245 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+\definecolor{kellygreen}{rgb}{0.3, 0.73, 0.09}
+\definecolor{alizarin}{rgb}{0.82, 0.1, 0.26}
+\definecolor{royalblue}{rgb}{0.25,0.41,1}
+\newcommand{\cmark}{{\color{kellygreen} \ding{51}}}
+\newcommand{\xmark}{{\color{alizarin} \ding{55}}}
+
+\newcommand{\major}[1]{\textbf{#1}}
+\newcommand{\minor}[1]{\textcolor{gray}{#1}}
+
+\definecolor{row-blue}{HTML}{F5FFFA}
+\definecolor{row-green}{HTML}{F1F6EC}
+\definecolor{row-yellow}{HTML}{FFFFF0}
+\definecolor{row-pink}{HTML}{FFF5F5}
+\definecolor{superlightgrey}{gray}{0.7}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+\newcommand{\best}[1]{{\textbf{#1}}}
+\newcommand{\second}[1]{{\underline{#1}}}
+\newcommand{\allbest}[1]{{\textbf{\underline{\textcolor{red}{#1}}}}}
+\definecolor{best}{HTML}{FFE8D9}
+\definecolor{second}{HTML}{DAE3F5}
+\newcommand{\bestcell}[1]{\colorbox{best}{#1}}
+\newcommand{\secondcell}[1]{\colorbox{second}{#1}}
+\newcommand{\up}[1]{\textcolor{red}{\scriptsize (+#1)}}
+\newcommand{\down}[1]{\textcolor[RGB]{46,139,87}{\scriptsize (-#1)}}
+\newcommand{\tie}[1]{\textcolor{gray}{\scriptsize (-)}}
+
+\definecolor{narrative}{HTML}{E9C5C4}
+\definecolor{event}{HTML}{FAF5BF}
+\definecolor{atomic}{HTML}{CFF1B6}
+
+\begin{document}
+
+\begin{table*}[!htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{lcccccccccccccc}
+    \toprule
+    \multirow{2}[2]{*}{Benchmark} & \multirow{2}[2]{*}{\makecell{\#Videos}} & \multirow{2}[2]{*}{\#Samp.} & \multirow{2}[2]{*}{Anno.} & \multirow{2}[2]{*}{Domain} & \multirow{2}[2]{*}{\makecell{Temporal \\ Oriented}} & \multirow{2}[2]{*}{\makecell{Scene \\ Trans.}} & \multicolumn{5}{c}{Captioning} & \multicolumn{2}{c}{VQA} \\
+    \cmidrule(lr){8-12} \cmidrule(lr){13-14}
+    & & & & & & & Camera & Scene & Key. & Sem. & M.D. & Global & Fine. \\
+    \midrule
+    \rowcolor{row-green}\multicolumn{14}{l}{\gray{\textit{\textbf{VQA Benchmark}}}}\\
+    \rowcolor{row-green}
+    NExT-QA \citep{xiao2021nextqa} & 1,000 & 8,564 & M & daily life & \xmark & \xmark & - & - & - & - & - & \xmark & \cmark \\
+    \rowcolor{row-green}
+    EgoSchema \citep{mangalam2023egoschema} & 5,063 & 5,063 & M\&A & egocentric & \cmark & \xmark & - & - & - & - & - & \cmark & \xmark \\
+    \rowcolor{row-green}
+    PerceptionTest \citep{patraucean2024perceptiontest} & 11,620 & 44,000 & M & indoor & \cmark & \xmark & - & - & - & - & - & \cmark & \cmark \\
+    \rowcolor{row-green}
+    MVBench \citep{li2024mvbench} & 3,641 & 4,000 & A & open & \cmark & \cmark & - & - & - & - & - & \cmark & \cmark \\
+    \rowcolor{row-green}
+    Video-MME \citep{fu2024videomme} & 900 & 2,700 & M & open & \xmark & \cmark & - & - & - & - & - & \xmark & \cmark \\
+    \rowcolor{row-green}
+    MMBench-Video \citep{fang2024mmbenchvideo} & 609 & 1,998 & M & open & \xmark & \cmark & - & - & - & - & - & \cmark & \cmark \\
+    \rowcolor{row-green}
+    VideoVista \citep{li2024videovista} & 894 & 24,906 & A & open & \xmark & \cmark & - & - & - & - & - & \xmark & \cmark \\
+    \rowcolor{row-green}
+    TOMATO \citep{shangguan2024tomato} & 1,417 & 1,484 & M & open & \cmark & \cmark & - & - & - & - & - & \cmark & \xmark \\
+    \midrule
+    \rowcolor{row-yellow}\multicolumn{14}{l}{\gray{\textit{\textbf{Captioning Benchmark}}}}\\
+    \rowcolor{row-yellow}
+    DREAM-1K \citep{wang2024tarsier} & 1,000 & 1,000 & M & open & \cmark & \cmark & \xmark & \xmark & \xmark & \cmark & \xmark & - & - \\
+    \rowcolor{row-yellow}
+    VDC \citep{chai2024auroracap} & 1,027 & 1,027 & A & open & \cmark & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & - & - \\
+    \midrule
+    \rowcolor{row-pink}\multicolumn{14}{l}{\gray{\textit{\textbf{Multi-task Benchmark}}}} \\
+    \rowcolor{row-pink}
+    MLVU \citep{zhou2024mlvu} & 1,334 & 2,593 & M & open & \xmark & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark \\
+    \rowcolor{row-pink}
+    TempCompass \citep{liu2024tempcompass} & 410 & 7,540 & M\&A & open & \cmark & \cmark & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark & \cmark \\
+    \rowcolor{row-pink}
+    E.T.Bench \citep{liu2024etbench} & 7,002 & 7,289 & M & open & \cmark & \cmark & \xmark & \xmark & \xmark & \cmark & \xmark & \cmark & \cmark \\
+    \rowcolor{row-pink}
+    TemporalBench \citep{cai2024temporalbench} & 2,179 & 2,179 & M & open & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \cmark \\
+    \midrule
+    \rowcolor{row-blue}
+    Tuna & 1,000 & 2,432 & M\&A & open & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+    \bottomrule
+    \end{tabular}%
+}
+  \caption{Comparison with various video understanding benchmarks across several aspects: number of videos (\textbf{\#Videos}); number of samples (\textbf{\#Samp.}); annotation method (\textbf{Anno.}, with M/A denoting manual/automatic); domain (\textbf{Domain}); temporal orientation (\textbf{Temporal Orientated}); presence of scene transitions (\textbf{Scene Trans.}); consideration of camera (\textbf{Camera}) and scene (\textbf{Scene}); use of keypoints (\textbf{Key.}) for controllability and interpretability; Judgement of semantically identical yet diverse representations (\textbf{Sem.}); availability of multi-dimensional scores (\textbf{M.D.}); if global (\textbf{Global}) and fine-grained (\textbf{Fine.}) understanding are concerned.
+  }
+  \label{tab:benchmark_comparison}%
+  \vspace{-1.5em}
+\end{table*}
+
+
+\begin{table*}[!htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{l|cccc|cccc|c}
+    \toprule
+    \multirow{2}[2]{*}{Model} & \multicolumn{4}{c|}{Dynamic Element Type} & \multicolumn{4}{c|}{Visual Characteristic} & \multirow{2}[2]{*}{Overall} \\
+    \cmidrule(lr){2-5} \cmidrule(lr){6-9}
+    & Camera & Scene & Action & Attribute & Low-Dynamic & High-Dynamic & Multi-Scene & Multi-Subject & \\
+    \midrule
+    \rowcolor{gray!10}\multicolumn{10}{c}{\textit{\textbf{Open-Source LMMs}}}\\
+    PLLaVA-7B 
+    & 49.4/22.6/28.9 & 52.2/30.9/36.6 & 30.5/12.6/16.5 & 44.5/19.5/25.3 & 66.5/23.0/32.7 & 56.6/17.1/24.7 & 55.7/15.5/22.8 & 56.2/15.3/22.5 & 60.0/19.1/27.4 \\
+    LongVA-7B
+    & 52.3/26.0/32.5 & 56.5/34.4/40.6 & 38.9/17.2/22.0 & 50.6/22.0/28.4 & 75.9/26.5/37.3 & 69.4/20.1/29.0 & 68.3/19.0/27.6 & 67.3/15.7/23.7 & 71.6/22.3/31.8 \\
+    Tarsier-7B 
+    & 56.9/27.3/34.8 & 45.3/28.2/33.1 & 56.7/28.9/36.2 & 56.4/26.0/33.3 & \best{81.2}/34.3/46.5 & 68.7/24.5/34.5 & 71.7/25.3/35.8 & 67.8/23.2/33.2 & 73.0/27.9/38.6 \\
+    Kangaroo 
+    & 65.2/36.5/44.1 & 67.8/45.4/51.9 & 49.3/26.0/31.9 & 59.8/32.2/39.5 & 73.2/34.7/45.6 & 67.6/31.3/41.1 & 66.2/29.7/39.3 & 63.5/26.3/35.7 & 69.5/32.5/42.7 \\
+    LLaVA-OV-7B 
+    & 75.2/42.0/51.0 & 71.8/51.2/57.6 & 54.1/30.4/36.8 & 66.2/42.0/49.3 & 78.6/38.4/50.0 & 71.0/38.8/48.9 & 71.7/38.3/48.4 & 67.1/33.8/43.8 & 73.6/38.6/49.3 \\
+    LLaVA-Video-7B 
+    & 74.0/41.5/50.4 & \second{73.6}/52.3/58.9 & 57.0/30.8/37.8 & \best{72.1}/\best{44.8}/\best{53.1} & \second{80.7}/40.0/52.2 & 75.1/39.5/50.3 & \second{77.1}/38.6/50.0 & 73.5/34.6/45.8 & 77.0/39.7/51.0 \\
+    Qwen2-VL-7B 
+    & 72.3/40.7/49.0 & 71.9/50.0/56.7 & 55.9/30.1/37.0 & 68.2/38.4/46.7 & \best{81.2}/42.0/\second{53.8} & \best{76.0}/35.3/46.4 & 76.8/33.2/44.4 & \second{73.6}/28.9/39.9 & \best{77.8}/37.6/48.9 \\
+    InternVL2-8B 
+    & 64.8/33.7/41.7 & 59.4/38.7/44.7 & 45.2/24.7/30.0 & 59.8/35.5/42.3 & 71.6/34.0/44.5 & 64.9/29.7/38.9 & 65.6/29.1/38.4 & 61.5/26.6/35.2 & 67.2/31.1/40.8 \\
+    MiniCPM-V-2.6 
+    & \best{76.5}/\best{47.8}/\best{56.0} & \best{75.0}/\second{54.1}/\second{60.6} & 57.2/31.8/38.8 & \second{68.7}/42.3/50.2 & 79.3/41.4/53.0 & 74.3/\second{40.4}/\second{51.0} & 76.5/\second{40.8}/\best{51.7} & 73.5/38.3/49.0 & 76.0/40.7/\second{51.7} \\
+    \midrule
+    PLLaVA-34B 
+    & 60.8/29.6/37.4 & 56.2/33.7/39.9 & 38.7/17.3/22.3 & 55.1/26.1/33.2 & 74.5/28.1/38.9 & 64.3/22.6/31.8 & 63.9/21.3/30.2 & 60.7/19.2/27.6 & 67.8/24.5/34.2 \\
+    Tarsier-34B 
+    & 63.6/34.3/42.3 & 59.0/38.4/44.4 & \best{65.6}/\best{39.9}/\best{47.6} & 63.6/34.3/42.2 & 79.6/37.2/49.1 & \second{75.8}/36.5/47.8 & \best{77.6}/38.1/49.6 & \best{74.4}/36.0/47.3 & \second{77.1}/36.7/48.2 \\
+    \midrule
+    LLaVA-OV-72B 
+    & 73.5/43.7/51.9 & 71.5/51.1/57.5 & 51.2/30.2/36.0 & 65.7/41.4/48.8 & 75.4/37.3/48.6 & 71.3/36.7/45.9 & 71.4/40.1/50.1 & 72.3/\second{39.1}/\best{49.4} & 72.7/39.2/49.6 \\
+    LLaVA-Video-72B 
+    & 72.7/41.7/50.3 & 71.1/49.9/56.4 & 55.7/32.7/39.3 & 68.1/43.2/50.8 & 77.3/39.2/50.6 & 71.9/39.8/50.0 & 73.9/38.6/49.3 & 70.5/35.1/45.7 & 73.7/39.6/50.2 \\
+    Qwen2-VL-72B 
+    & 73.6/45.9/54.0 & 67.6/46.3/52.8 & \second{59.1}/\second{35.7}/\second{42.6} & 66.6/40.7/48.5 & 79.2/\best{44.6}/\best{55.7} & 72.4/39.3/49.7 & 73.6/37.2/48.0 & 69.1/32.8/43.3 & 74.7/\second{41.1}/\second{51.7} \\
+    InternVL2-76B 
+    & \second{75.1}/\second{45.4}/\second{53.9} & 73.3/\best{55.8}/\best{61.4} & 55.7/34.9/41.2 & 64.3/\second{44.5}/\second{50.9} & 72.0/\second{43.1}/52.8 & 70.1/\best{41.9}/\best{51.5} & 71.4/\best{41.1}/\second{51.1} & 68.6/\best{39.7}/\second{49.3} & 70.7/\best{42.3}/\best{51.9} \\
+    \midrule
+    \rowcolor{gray!10}\multicolumn{10}{c}{\textit{\textbf{Closed-Source LMMs}}}\\
+    Gemini 1.5 Flash & 74.6/52.8/59.6 & \second{77.2}/\second{59.3}/\second{65.1} & 58.7/36.4/42.9 & \second{69.0}/48.4/55.2 & 74.0/46.5/56.0 & 72.0/46.4/55.5 & 73.4/46.2/55.9 & \second{73.4}/\best{46.2}/\best{55.9} & 72.7/46.4/55.7 \\
+    Gemini 1.5 Pro & \second{78.7}/\second{53.0}/\second{60.7} & 75.7/57.4/63.3 & \second{59.0}/\second{40.3}/\second{46.3} & \second{69.0}/\second{49.4}/\second{56.0} & \second{76.7}/\best{48.7}/\best{58.7} & \second{72.1}/\second{47.8}/\second{56.7} & \second{73.4}/\best{47.7}/\second{57.0} & 69.9/44.1/53.3 & \second{73.7}/\second{48.1}/\second{57.4} \\
+    GPT-4o & \best{80.1}/\best{53.3}/\best{61.3} & \best{79.5}/\best{60.2}/\best{66.4} & \best{64.0}/\best{41.1}/\best{48.0} & \best{73.8}/\best{50.1}/\best{57.8} & \best{79.1}/\second{47.3}/\second{58.2} & \best{77.0}/\best{48.6}/\best{58.7} & \best{78.7}/\second{47.2}/\best{58.1} & \best{76.8}/\second{44.4}/\second{55.5} & \best{77.7}/\best{48.2}/\best{58.5} \\
+    \bottomrule
+    \end{tabular}%
+}
+  \caption{performance of representative video LMMs. We provide detailed scores for selected tested models in various perception skills and visual characteristic categories. Each cell contains "\textbf{Precision} / \textbf{Recall} / \textbf{F1 Score}". The best and second-best results are marked with \best{bold} and \second{underline}, respectively.}
+  \label{tab:results_cap_full}%
+  \vspace{-1.2em}
+\end{table*}
+
+\begin{table*}[!htbp]
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{l|cc|cc|ccc|ccc|c}
+    \toprule
+    \multirow{2}[2]{*}{Model} & \multicolumn{2}{c|}{Camera State} & \multicolumn{2}{c|}{Background Scene} & \multicolumn{3}{c|}{Subject Action} & \multicolumn{3}{c|}{Object Attribute} & \multirow{2}[2]{*}{Overall} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-8} \cmidrule(lr){9-11}
+    & Motion & Transition & Description & Transition & Recognition & Sequence & Matching & Recognition & Appearance & Location &  \\
+    \midrule
+    \rowcolor{gray!10}\multicolumn{12}{c}{\textit{\textbf{Open-Source LMMs}}}\\
+    PLLaVA-7B        & 29.7 & 31.9 & 48.1 & 22.4 & 43.6 & 34.6 & 30.4 & 32.3 & 38.1 & 45.2 & 33.7 \\
+    LongVA-7B        & 37.5 & 41.5 & 63.0 & 30.8 & 44.6 & 44.7 & 43.5 & 41.7 & 47.6 & 40.5 & 42.4 \\
+    Tarsier-7B       & 23.0 & 24.6 & 40.7 & 20.6 & 38.6 & 26.9 & 45.7 & 20.9 & 25.9 & 23.8 & 26.5 \\
+    Kangaroo         & 33.2 & 47.3 & 53.7 & 38.3 & 49.5 & 38.8 & 54.3 & 47.2 & 43.5 & 59.5 & 42.9 \\
+    LLaVA-OV-7B      & 42.2 & 54.6 & 57.4 & 48.6 & 42.6 & 41.4 & 60.9 & 47.9 & 50.0 & 59.5 & 47.4 \\
+    LLaVA-Video-7B   & 39.1 & 50.7 & 59.3 & 46.7 & 52.5 & 52.4 & 56.5 & 53.6 & 61.9 & 47.6 & 50.6 \\
+    Qwen2-VL-7B      & 41.0 & 51.7 & 66.7 & 45.8 & 54.5 & 52.8 & 65.2 & 49.0 & 60.2 & 57.1 & 51.3 \\
+    InternVL2-8B     & 41.0 & 53.1 & 66.7 & 40.2 & 45.5 & 50.5 & 50.0 & 45.8 & 56.8 & 45.2 & 48.4 \\
+    MiniCPM-V-2.6    & 39.8 & 45.9 & 59.3 & 34.6 & 49.5 & 51.1 & 52.2 & 42.2 & 46.6 & 50.0 & 45.7 \\
+    \midrule
+    PLLaVA-34B       & 42.6 & 41.5 & 63.0 & 43.9 & 45.5 & 48.5 & 56.5 & 43.2 & 56.8 & 57.1 & 46.9 \\
+    Tarsier-34B      & 43.0 & 48.3 & 72.2 & 45.8 & 51.5 & 50.2 & 56.5 & 49.7 & 53.7 & \second{61.9} & 50.1 \\
+    \midrule
+    LLaVA-OV-72B     & 46.5 & \best{67.6} & \second{75.9} & \second{57.0} & 59.4 & \second{56.6} & \best{73.9} & \best{63.5} & 69.5 & 59.5 & \second{60.0} \\
+    LLaVA-Video-72B  & \second{47.7} & \best{67.6} & \best{77.8} & \best{61.7} & \second{61.4} & \best{57.0} & 65.2 & 62.5 & \second{73.7} & 57.1 & \best{60.7} \\
+    Qwen2-VL-72B     & \best{52.7} & \second{64.7} & 74.1 & 55.1 & \best{62.4} & 54.4 & \second{67.4} & \second{63.0} & \best{76.3} & \best{66.7} & \best{60.7} \\
+    InternVL2-76B    & 43.8 & 61.8 & 74.1 & 43.0 & 50.5 & 50.5 & 54.3 & 52.1 & 66.1 & 57.1 & 53.1 \\
+    \midrule
+    \rowcolor{gray!10}\multicolumn{12}{c}{\textit{\textbf{Closed-Source LMMs}}}\\
+    Gemini 1.5 Flash & 40.8 & \second{58.3} & \second{70.4} & 52.3 & 48.0 & 54.2 & \second{63.0} & 49.0 & 66.7 & \second{64.3} & 53.3 \\
+    Gemini 1.5 Pro   & \second{49.4} & \best{68.4} & 64.8 & \best{59.8} & \second{55.0} & \second{60.4} & \best{69.6} & \best{64.6} & \second{65.0} & \best{66.7} & \best{60.8} \\
+    GPT-4o           & \best{53.9} & 56.0 & \best{81.5} & \second{56.1} & \best{59.4} & \best{67.6} & 58.7 & \second{56.8} & 63.6 & 59.5 & \second{60.3} \\
+    \bottomrule
+    \end{tabular}%
+}
+  \caption{ performance of representative video LMMs. We provide detailed scores for selected tested models on 10 temporal tasks. The best and second-best results are marked with \best{bold} and \second{underline}, respectively.}
+  \label{tab:main_results_mcq}%
+  \vspace{-1.5em}
+\end{table*}
+\end{document}

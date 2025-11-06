@@ -1,0 +1,110 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+\newcommand{\prompt}{SKP}
+\newcommand{\benchmark}{SUBARU}
+\definecolor{green0}{RGB}{190, 245, 163}
+\newcommand{\SR}{\cellcolor{green0}}
+\definecolor{green1}{RGB}{118, 189, 83}
+\newcommand{\UR}{\cellcolor{green1}}
+\definecolor{green2}{RGB}{63, 137, 26}
+\newcommand{\SSR}{\cellcolor{green2}}
+\begin{document}
+
+\begin{table*}[]
+\centering
+\caption{The main experiment results on the 9 tasks of benchmark. We colored the top-3 results under each task with a different \textcolor{green2}{green} color from shallow to deep.}
+\label{table:main}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{cc|cccccccccc}
+    \toprule
+    \multicolumn{2}{c|}{} & \multicolumn{3}{c}{\textbf{Entity Granularity}} & \multicolumn{3}{c}{\textbf{Triple Granularity}} & \multicolumn{4}{c}{\textbf{Subgraph Granularity}} \\
+    \multicolumn{2}{c|}{\multirow{-2}{*}{\textbf{Method}}} & \textbf{L-1 (Acc)} & \textbf{L-2 (Acc)} & \textbf{L-3  (EM)} & \textbf{L-1 (Acc)} & \textbf{L-2 (Acc)} & \textbf{L-3  (EM)} & \textbf{L-1 (Acc)} & \textbf{L-2 (Acc)} & \textbf{L-3  (B-4)} & \textbf{L-3 (GPT)} \\
+    \midrule
+    \multicolumn{2}{c|}{\textbf{Random Choice}} & 50.00 & 25.00 & - & 50.00 & 25.00 & - & 50.00 & 25.00 & - & - \\
+    \midrule
+         & \textbf{TransE} & 55.85 & 39.49 & 0.00 & 55.41 & 87.42 & 2.77 & 82.43 & 57.95 & 9.85 & 14.97 \\
+         & \textbf{DistMult} & 52.61 & {34.02} & 0.00 & 47.23 & 89.60 & 21.21 & 87.10 & 78.99 & 4.32 & 35.42 \\
+         & \textbf{RotatE} & 57.34 & 51.16 & 0.00 & 55.59 & 66.77 & {6.88} & 70.12 & 62.54 & 2.12 & 22.20 \\
+    \multirow{-4}{*}{\textbf{FC}} & \textbf{R-GCN} & 52.44 & 41.97 & 0.00 & 52.53 & 90.50 & 27.90 & {86.75} & 54.49 & {5.64} & 19.57 \\
+    \midrule
+         & \textbf{TransE} & \UR 84.76 & \UR 91.01 & 0.00 & 53.92 & 86.51 & 41.83 & \SSR 91.71 & 89.34 & 12.67 & 45.61 \\
+         & \textbf{DistMult} & 57.71 & 61.84 & 0.00 & \SR 55.64 & 93.53 & \SSR 97.91 & 65.46 & \SR 90.35 & \SSR 26.72 & \UR 55.56 \\
+         & \textbf{RotatE} & \SSR{85.43} & 54.94 & 0.00 & 53.71 & 88.21 & \SR 83.74 & \SR 89.14 & \UR 90.43 & \UR 24.74 & \SSR 55.80 \\
+        \multirow{-4}{*}{\textbf{MLP}} & \textbf{R-GCN} & 66.85 & 44.46 & 0.00 & 53.68 & 90.45 & \UR 94.59 & 76.70 & \SSR 91.05 & 16.08 & \SR 49.25 \\
+    \midrule    
+         & \textbf{TransE} & 58.66 & {38.89} & 0.00 & \SSR 65.24 & 92.07 & 19.72 & 88.46 & 80.32 & 19.50 & 46.93 \\
+         & \textbf{DistMult} & 55.35 & 27.37 & 0.00 & 54.49 & 92.92 & {8.38} & 86.98 & 81.60 & 9.75 & 35.57 \\
+         & \textbf{RotatE} & 56.47 & 29.30 & 0.00 & \UR 59.47 & 89.09 & {7.32} & \UR 90.31 & 88.44 & \SR 19.68 & 47.05 \\
+    \multirow{-4}{*}{\textbf{MoE}} & \textbf{R-GCN} & 54.23 & 38.15 & 0.00 & 53.59 & 92.09 & 27.46 & 54.90 & 78.91 & 4.04 & 20.39 \\
+    \midrule
+         & \textbf{TransE} & 59.48 & \SSR 92.50 & 0.00 & 54.77 & \SSR 94.42 & 38.90 & 78.97 & 27.14 & 11.32 & 41.19 \\
+         & \textbf{DistMult} & 75.34 & 60.40 & 0.00 & {52.95} & \UR 94.11 & 17.77 & 78.59 & 37.53 & 9.25 & 32.74 \\
+         & \textbf{RotatE} & \SR {82.96} & \SR 79.50 & 0.00 & 50.84 & \SR 94.02 & 6.23 & 80.35 & 26.33 & 14.43 & 42.41 \\
+    \multirow{-4}{*}{\textbf{Q-former}} & \textbf{R-GCN} & 81.77 & 41.11 & 0.00 & 51.18 & 93.94 & 16.23 & 73.60 & 27.42 & 4.73 & 21.82 \\
+    \bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\end{document}
