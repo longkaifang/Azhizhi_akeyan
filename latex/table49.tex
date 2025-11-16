@@ -1,0 +1,142 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+\usepackage{soul}
+\usepackage{xcolor}
+\DeclareRobustCommand{\hlgood}[1]{{\sethlcolor{SpringGreen}\hl{#1}}}
+\DeclareRobustCommand{\hlbad}[1]{{\sethlcolor{Melon}\hl{#1}}}
+
+
+\begin{document}
+
+\begin{table*}[t]
+\centering
+\caption{Quantitative Analysis on FG-SBIR. Best viewed when \textit{zoomed}.}
+\vspace{-0.35cm}
+\label{tab:quant}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lccccccccccccccc}
+  \toprule
+  \multicolumn{2}{c}{\multirow{2}{*}{Methods}} & Canvas-size & Params & \multicolumn{3}{c}{ShoeV2 \cite{yu2016sketch}} & \multicolumn{3}{c}{ChairV2 \cite{yu2016sketch}} & \multicolumn{3}{c}{Sketchy \cite{sangkloy2016sketchy}} & \multicolumn{3}{c}{FSCOCO \cite{chowdhury2022fs}} \\
+  \cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+  & & c$\times$c & (mil.) &  Top1 (\%) & Top10 (\%) &FLOPS (G) & Top1 (\%) & Top10 (\%) &FLOPS (G) & Top1 (\%) & Top10 (\%) &FLOPs (G) & Top1 (\%) & Top10 (\%) &FLOPS (G)\\
+  \cmidrule(lr){1-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+  \multirow{30}{*}{\rotatebox[origin=c]{90}{State-of-the-Arts}} 
+  & \multirow{6}{*}{\rotatebox[origin=c]{90}{Triplet-SN~\cite{yu2016sketch}}} 
+      & 32x32          & 8.75 & 09.77  \hlbad{($\downarrow$18.94)} & 24.82  \hlbad{($\downarrow$46.74)} & 0.083 & 15.61  \hlbad{($\downarrow$32.04)} & 29.86  \hlbad{($\downarrow$54.38)} & 0.083 &  4.23  \hlbad{($\downarrow$11.12)} & 12.58  \hlbad{($\downarrow$23.13)} & 0.083 & 0.76  \hlbad{($\downarrow$3.94)} &  6.22  \hlbad{($\downarrow$14.8)}  & 0.083 \\
+    & & 64x64          & 8.75 & 17.63  \hlbad{($\downarrow$11.08)} & 44.96  \hlbad{($\downarrow$26.60)} & 0.338 & 30.25  \hlbad{($\downarrow$17.4)}  & 54.21  \hlbad{($\downarrow$30.03)} & 0.338 &  9.68  \hlbad{($\downarrow$5.67)}  & 22.45  \hlbad{($\downarrow$13.26)} & 0.338 & 1.85  \hlbad{($\downarrow$2.85)} &  7.33  \hlbad{($\downarrow$13.69)} & 0.338 \\
+    & & 128x128        & 8.75 & 25.01  \hlbad{($\downarrow$3.70)}   & 62.35  \hlbad{($\downarrow$9.21)} & 1.397 & 40.61  \hlbad{($\downarrow$7.04)}  & 72.68  \hlbad{($\downarrow$11.56)} & 1.397 & 12.98  \hlbad{($\downarrow$2.37)}  & 29.63  \hlbad{($\downarrow$6.08)}  & 1.397 & 3.28  \hlbad{($\downarrow$1.42)} & 15.92  \hlbad{($\downarrow$5.1)}   & 1.397 \\
+    & & 256x256        & 8.75 & 28.71            & 71.56            & 5.280 & 47.65            & 84.24            & 5.280 & 15.35            &35.71             & 5.280 &  4.7           & 21.02            & 5.280 \\
+    & & SketchyNetV1   & 2.22 & 28.46 \hlgood{($\downarrow$0.25)} & 69.01 \hlgood{($\downarrow$2.55)} & 0.833  & 46.28 \hlgood{($\downarrow$0.37)} & 82.33 \hlgood{($\downarrow$1.91)} & 0.833 & 14.85 \hlgood{($\downarrow$0.5)}  & 34.68 \hlgood{($\downarrow$1.03)} & 0.833      & 4.22 \hlgood{($\downarrow$0.48)} & 18.33 \hlgood{($\downarrow$2.69)}  & 0.833 \\
+    &  & \cellcolor{Gray}{SketchyNetV2}   & \cellcolor{Gray}2.27 & \cellcolor{Gray}27.89 \hlgood{($\downarrow$0.82)} & \cellcolor{Gray}68.76 \hlgood{($\downarrow$2.80)} & \cellcolor{Gray}0.264  & \cellcolor{Gray}45.98 \hlgood{($\downarrow$1.67)} & \cellcolor{Gray}80.14 \hlgood{($\downarrow$4.10)} & \cellcolor{Gray}0.294 & \cellcolor{Gray}14.21 \hlgood{($\downarrow$1.14)} & \cellcolor{Gray}34.16 \hlgood{($\downarrow$1.55)} & \cellcolor{Gray}0.321      & \cellcolor{Gray}3.98 \hlgood{($\downarrow$0.72)} & \cellcolor{Gray}17.64 \hlgood{($\downarrow$3.38)}  & \cellcolor{Gray}0.423 \\
+       \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    & \multirow{6}{*}{\rotatebox[origin=c]{90}{HOLEF-SN~\cite{song2017deep}} }
+      & 32x32          & 9.31 & 10.84  \hlbad{($\downarrow$20.9)}  & 27.28  \hlbad{($\downarrow$48.5)}  & 0.096 & 18.72  \hlbad{($\downarrow$34.69)} & 31.68  \hlbad{($\downarrow$55.88)} & 0.096 &  6.01  \hlbad{($\downarrow$10.69)} & 14.12  \hlbad{($\downarrow$24.78)} & 0.096 & 0.86  \hlbad{($\downarrow$4.04)} & 6.93   \hlbad{($\downarrow$14.78)} & 0.096 \\
+    & & 64x64          & 9.31 & 19.83  \hlbad{($\downarrow$11.91)} & 51.72  \hlbad{($\downarrow$24.06)} & 0.387 & 34.32  \hlbad{($\downarrow$19.09)} & 56.46  \hlbad{($\downarrow$31.1)}  & 0.387 &  9.92  \hlbad{($\downarrow$6.78)}  & 24.38  \hlbad{($\downarrow$14.52)} & 0.387 & 2.11  \hlbad{($\downarrow$2.79)} & 7.86   \hlbad{($\downarrow$13.85)} & 0.387 \\
+    & & 128x128        & 9.31 & 26.78  \hlbad{($\downarrow$4.96)}  & 66.28  \hlbad{($\downarrow$9.5)}   & 1.545 & 45.74  \hlbad{($\downarrow$7.67)}  & 75.59  \hlbad{($\downarrow$11.97)} & 1.545 & 13.81  \hlbad{($\downarrow$2.89)}  & 33.68  \hlbad{($\downarrow$5.22)}  & 1.545 & 3.65  \hlbad{($\downarrow$1.25)} & 16.32  \hlbad{($\downarrow$5.39)}  & 1.545 \\
+    & & 256x256        & 9.31 & 31.74             & 75.78            & 5.758 & 53.41            & 87.56            & 5.758 & 16.70            &38.90             & 5.758 & 4.9            & 21.71            & 5.758 \\
+    & & SketchyNetV1   & 2.22 & 31.59 \hlgood{($\downarrow$0.15)} & 73.96 \hlgood{($\downarrow$1.82)} & 0.833 & 53.27 \hlgood{($\downarrow$0.14)} & 86.93 \hlgood{($\downarrow$0.63)}     & 0.833 & 16.25 \hlgood{($\downarrow$0.45)}  & 38.21 \hlgood{($\downarrow$0.69)}  & 0.833 & 4.56 \hlgood{($\downarrow$0.34)} & 19.92 \hlgood{($\downarrow$1.79)}  & 0.833 \\
+    &   & \cellcolor{Gray}SketchyNetV2   & \cellcolor{Gray}2.27 & \cellcolor{Gray}30.86 \hlgood{($\downarrow$0.88)} & \cellcolor{Gray}72.56 \hlgood{($\downarrow$3.22)} & \cellcolor{Gray}0.259 & \cellcolor{Gray}52.74 \hlgood{($\downarrow$0.67)} & \cellcolor{Gray}84.02 \hlgood{($\downarrow$3.54)}     & \cellcolor{Gray}0.289 & \cellcolor{Gray}15.91 \hlgood{($\downarrow$0.79)}  & \cellcolor{Gray}37.88 \hlgood{($\downarrow$1.02)}  & \cellcolor{Gray}0.315 & \cellcolor{Gray}4.04 \hlgood{($\downarrow$0.86)} & \cellcolor{Gray}18.63 \hlgood{($\downarrow$3.08)}  & \cellcolor{Gray}0.417 \\
+       \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    & \multirow{6}{*}{\rotatebox[origin=c]{90}{Triplet-RL~\cite{bhunia2020sketch}}} 
+      & 32x32          & 22.1 & 11.98  \hlbad{($\downarrow$22.12)} & 28.11  \hlbad{($\downarrow$50.71)} & 0.142 & 20.53  \hlbad{($\downarrow$36.01)} & 32.59  \hlbad{($\downarrow$57.02)} & 0.142 & 1.76  \hlbad{($\downarrow$2.94)} &  3.88  \hlbad{($\downarrow$6.47)} & 0.142 & -- & -- & -- \\
+    & & 64x64          & 22.1 & 21.28  \hlbad{($\downarrow$12.82)} & 54.71  \hlbad{($\downarrow$24.11)} & 0.577 & 36.09  \hlbad{($\downarrow$20.45)} & 57.33  \hlbad{($\downarrow$32.28)} & 0.577 & 3.04  \hlbad{($\downarrow$1.66)} &  6.79  \hlbad{($\downarrow$3.56)} & 0.577 & -- & -- & -- \\
+    & & 128x128        & 22.1 & 28.83  \hlbad{($\downarrow$5.27)}  & 67.84  \hlbad{($\downarrow$10.98)} & 2.299 & 48.38  \hlbad{($\downarrow$8.16)}  & 77.25  \hlbad{($\downarrow$12.36)} & 2.299 & 4.12  \hlbad{($\downarrow$0.58)} &  9.05  \hlbad{($\downarrow$1.30)} & 2.299 & -- & -- & -- \\
+    & & 256x256        & 22.1 & 34.10             & 78.82            & 6.041 & 56.54            & 89.61            & 6.041 & 4.70            & 10.35            & 6.041 & -- & -- & -- \\
+    & & SketchyNetV1   & 2.22 & 33.88  \hlgood{($\downarrow$0.22)} & 77.15 \hlgood{($\downarrow$1.67)} & 0.833 & 55.92 \hlgood{($\downarrow$0.62)} & 88.20 \hlgood{($\downarrow$1.41)} & 0.833 & 4.59 \hlgood{($\downarrow$0.11)} & 10.21 \hlgood{($\downarrow$0.14)} & 0.833      & -- & -- & -- \\
+    &   & \cellcolor{Gray}SketchyNetV2   & \cellcolor{Gray}2.27 & \cellcolor{Gray}33.26  \hlgood{($\downarrow$0.84)} & \cellcolor{Gray}76.84 \hlgood{($\downarrow$1.98)} & \cellcolor{Gray}0.255 & \cellcolor{Gray}55.14 \hlgood{($\downarrow$1.40)} & \cellcolor{Gray}87.31 \hlgood{($\downarrow$2.30)} & \cellcolor{Gray}0.285 & \cellcolor{Gray}4.51 \hlgood{($\downarrow$0.19)} &  \cellcolor{Gray}9.89 \hlgood{($\downarrow$0.46)} & \cellcolor{Gray}0.308      & \cellcolor{Gray}-- &\cellcolor{Gray} -- &\cellcolor{Gray} -- \\
+       \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    & \multirow{6}{*}{\rotatebox[origin=c]{90}{StyleVAE~\cite{sain2021stylemeup}}}
+      & 32x32        & 25.37 & 12.68  \hlbad{($\downarrow$23.79)} & 28.69  \hlbad{($\downarrow$53.14)} & 0.125 & 22.48 \hlbad{($\downarrow$40.38)} & 32.10 \hlbad{($\downarrow$59.04)} & 0.125 & 06.92 \hlbad{($\downarrow$12.7)} & 16.25 \hlbad{($\downarrow$29.53)}  & 0.125 & -- & -- & -- \\
+    & & 64x64        & 25.37 & 22.93  \hlbad{($\downarrow$13.54)} & 57.71  \hlbad{($\downarrow$24.12)} & 0.508 & 40.26 \hlbad{($\downarrow$22.6)}  & 58.23 \hlbad{($\downarrow$32.91)} & 0.508 & 12.46 \hlbad{($\downarrow$7.16)} & 29.62 \hlbad{($\downarrow$16.16)}  & 0.508 & -- & -- & -- \\
+    & & 128x128      & 25.37 & 30.91  \hlbad{($\downarrow$5.56)}  & 70.06  \hlbad{($\downarrow$11.77)} & 2.024 & 53.88 \hlbad{($\downarrow$8.98)}  & 78.64 \hlbad{($\downarrow$12.5)}  & 2.024 & 17.15 \hlbad{($\downarrow$2.47)} & 38.84 \hlbad{($\downarrow$6.94)}   & 2.024 & -- & -- & -- \\
+    & & 256x256      & 25.37 & 36.47                              & 81.83                              & 5.642  & 62.86                             & 91.14                             & 5.642  & 19.62                             & 45.78                             & 5.642  & -- & -- & -- \\
+    & & SketchyNetV1 &  2.22 & 36.11 \hlgood{($\downarrow$0.36)}  & 79.63 \hlgood{($\downarrow$2.20)}  & 0.833 & 62.23 \hlgood{($\downarrow$0.63)} & 88.95 \hlgood{($\downarrow$2.19)} & 0.833 & 19.48 \hlgood{($\downarrow$0.12)} & 44.02 \hlgood{($\downarrow$1.76)} & 0.833       & -- & -- & -- \\
+    &  & \cellcolor{Gray}SketchyNetV2 & \cellcolor{Gray}2.27 & \cellcolor{Gray}35.88 \hlgood{($\downarrow$0.59)}  & \cellcolor{Gray}78.46 \hlgood{($\downarrow$3.37)}  & \cellcolor{Gray}0.251 & \cellcolor{Gray}61.95 \hlgood{($\downarrow$0.91)} & \cellcolor{Gray}87.68 \hlgood{($\downarrow$3.46)} & \cellcolor{Gray}0.281 & \cellcolor{Gray}19.10 \hlgood{($\downarrow$0.50)} & \cellcolor{Gray}43.57 \hlgood{($\downarrow$2.21)} & \cellcolor{Gray}0.304       & \cellcolor{Gray}-- & \cellcolor{Gray}-- & \cellcolor{Gray}-- \\
+       \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    & \multirow{6}{*}{\rotatebox[origin=c]{90}{Partial-OT~\cite{chowdhury2022partially}}} 
+      & 32x32          & 22.1 & -- & -- & -- & -- & -- & -- & -- & -- & -- &  6.11  \hlbad{($\downarrow$18.05)} & 24.18  \hlbad{($\downarrow$29.74)} & 0.196 \\
+    & & 64x64          & 22.1 & -- & -- & -- & -- & -- & -- & -- & -- & -- & 12.32  \hlbad{($\downarrow$11.84)} & 37.65  \hlbad{($\downarrow$16.27)} & 0.687 \\
+    & & 128x128        & 22.1 & -- & -- & -- & -- & -- & -- & -- & -- & -- & 19.61  \hlbad{($\downarrow$4.55)}  & 45.12  \hlbad{($\downarrow$8.8)}   & 2.876 \\
+    & & 256x256        & 22.1 & -- & -- & -- & -- & -- & -- & -- & -- & -- & 24.16                              & 53.92                              & 6.512 \\
+    & & SketchyNetV1   & 2.22 & -- & -- & -- & -- & -- & -- & -- & -- & -- & 23.89  \hlgood{($\downarrow$0.27)} & 51.29 \hlgood{($\downarrow$2.63)}  & 0.833 \\
+    &   & \cellcolor{Gray}SketchyNetV2   & \cellcolor{Gray}2.27 & \cellcolor{Gray}-- &\cellcolor{Gray} -- & \cellcolor{Gray}-- &\cellcolor{Gray} -- &\cellcolor{Gray} -- &\cellcolor{Gray} -- &\cellcolor{Gray} -- &\cellcolor{Gray} -- &\cellcolor{Gray} -- & \cellcolor{Gray}23.77  \hlgood{($\downarrow$0.39)} & \cellcolor{Gray}50.68 \hlgood{($\downarrow$3.24)}  & \cellcolor{Gray}0.325 \\
+    \cmidrule(lr){1-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    \multirow{11}{*}{\rotatebox[origin=c]{90}{Baselines}} 
+    & B-BFR        & 224x224 & 4.61 & 24.32 & 61.23 & 2.602 & 43.39 & 76.33 & 2.602 & 10.47 & 24.34 & 2.602 & 2.15 & 11.61 & 2.602 \\
+    & B-DRS        & Dynamic & 9.36 & 25.12 & 68.84 & 5.493 & 44.78 & 78.14 & 6.187 & 11.87 & 26.58 & 6.245 & 3.86 & 17.63 & 6.291 \\
+    & B-Crop       & Dynamic & 4.92 & 20.32 & 52.12 & 6.562 & 35.07 & 57.68 & 6.597 & 08.27 & 20.19 & 6.629 & 1.98 & 09.67 & 6.688 \\
+       \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    & B-Regress \cite{romero2015fitnets}    & Dynamic & 2.27 & 22.82 & 61.33 & 0.261 & 38.42 & 64.65 & 0.291 & 08.69 & 21.98 & 0.323 & 2.07 & 10.15 & 0.375 \\
+    & B-AKD \cite{zagoruyko2017KDattention} & Dynamic & 2.27 & 23.67 & 64.26 & 0.268 & 38.61 & 71.88 & 0.295 & 12.67 & 27.71 & 0.331 & 2.91 & 14.01 & 0.392 \\
+    & B-PKT \cite{passalis2018learning}     & Dynamic & 2.27 & 24.31 & 65.91 & 0.259 & 42.68 & 73.66 & 0.288 & 12.27 & 28.31 & 0.317 & 3.45 & 16.22 & 0.372 \\
+       \cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}\cmidrule(lr){14-16}
+    & B-VGG16-SN    & 256x256      & 14.71 & 33.03                              & 78.51                              & 40.18 & 52.16                              & 84.08                              & 40.18 & 18.61                             & 41.25                             & 40.18 & 5.16                             & 23.62                              & 40.18 \\
+    & B-ThiNet~\cite{luo2017thinet}     & 256x256      &  8.32 &  7.51 \hlbad{($\downarrow$25.52)}  & 22.34  \hlbad{($\downarrow$56.17)} & 9.342 & 12.31 \hlbad{($\downarrow$39.85)}  & 26.63 \hlbad{($\downarrow$57.45)}  & 9.342 & 3.16  \hlbad{($\downarrow$15.45)} & 12.73 \hlbad{($\downarrow$28.52)} & 9.342 & 0.65  \hlbad{($\downarrow$4.51)} &  5.35 \hlbad{($\downarrow$18.27)}  & 9.342 \\
+    & B-Prune~\cite{molchanov2016pruning} & 256x256      &  6.17 &  3.92 \hlbad{($\downarrow$29.11)}  & 17.32  \hlbad{($\downarrow$61.19)} & 8.138 &  7.98 \hlbad{($\downarrow$44.18)}  & 19.82 \hlbad{($\downarrow$64.26)}  & 8.138 & 1.45  \hlbad{($\downarrow$17.16)} &  8.22 \hlbad{($\downarrow$33.03)} & 8.138 & 0.53  \hlbad{($\downarrow$4.63)} &  4.97 \hlbad{($\downarrow$18.65)}  & 8.138 \\
+    & \cellcolor{Gray}B-VGG16-SN    & \cellcolor{Gray}SketchyNetV2 & \cellcolor{Gray} 2.27 &\cellcolor{Gray} 32.77 \hlgood{($\downarrow$0.26)} & \cellcolor{Gray}78.21 \hlgood{($\downarrow$0.3)}    & \cellcolor{Gray}0.254 & \cellcolor{Gray}50.75 \hlgood{($\downarrow$1.41)}  & \cellcolor{Gray}82.21 \hlgood{($\downarrow$1.87)}  & \cellcolor{Gray}0.283 & \cellcolor{Gray}16.55 \hlgood{($\downarrow$2.06)} & \cellcolor{Gray}38.66 \hlgood{($\downarrow$2.59)} & \cellcolor{Gray}0.332 & \cellcolor{Gray}4.69 \hlgood{($\downarrow$0.47)} &\cellcolor{Gray} 21.76 \hlgood{($\downarrow$1.86)}  & \cellcolor{Gray}0.407 \\ 
+    \bottomrule
+    \end{tabular}}
+\end{table*}
+
+\end{document}

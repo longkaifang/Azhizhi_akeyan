@@ -1,0 +1,415 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+\definecolor{lightgreen}{RGB}{200,255,200}
+\definecolor{lightpink}{rgb}{1.0, 0.85, 0.9} 
+\definecolor{lightblue}{rgb}{0.529, 0.808, 0.922} 
+\definecolor{lightgray}{gray}{0.85}
+\usepackage{arydshln}
+
+\begin{document}
+\begin{table*}[t!]
+\centering
+\begin{minipage}{0.3\textwidth} % 调整宽度
+\fontsize{6.2}{7.5} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|cc}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & \multicolumn{2}{c}{Dataset} \\ \cline{2-3} 
+& GSM          & PIQA         \\ \hline
+DeepSeek-7B(102K)   & 59.67  & 72.66 \\
+Mistral-7B(32K)    & 56.48  &80.63\\ \hline
+\multirow{2}{*}{\textsc{LLM-Blender}}  & 61.16  & 76.54 \\
+&(\textcolor{green}{+1.49})&(\textcolor{red}{-4.09})       \\
+\multirow{2}{*}{\textsc{DeePen}(DeepSeek-7B)} & 55.00   & 77.65\\
+&(\textcolor{red}{-4.67})
+&(\textcolor{green}{+4.99}) \\
+\multirow{2}{*}{\textsc{DeePen}(Mistral-7B)}  & 61.28   &76.32\\
+&(\textcolor{green}{+4.80})&(\textcolor{red}{-4.31}) \\
+% \textsc{GaC}  & 50.59(\textcolor{red}{-9.08})  & 65.18(\textcolor{red}{-15.45})       \\
+\cdashline{1-3}
+\multirow{2}{*}{Ours(DeepSeek-7B)}  &62.77   &81.81\\
+&(\textcolor{green}{+3.10})
+&(\textcolor{green}{+9.15})       \\
+\multirow{2}{*}{Ours(Mistral-7B)}  &58.88   &81.81 \\
+&(\textcolor{green}{+2.40})
+&(\textcolor{green}{+1.18})       \\
+\toprule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+\hspace{4.5mm}
+\begin{minipage}{0.3\textwidth} % 调整宽度
+\fontsize{6.2}{7.5} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|cc}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & \multicolumn{2}{c}{Dataset} \\ \cline{2-3} & MMLU   & ARC-C         \\ \hline
+DeepSeek-7B(102K)              & 46.97        & 58.73        \\
+LLaMA2-13B(32K)               & 49.61        & 51.53        \\ \hline
+\multirow{2}{*}{\textsc{LLM-Blender}}    & 48.86        & 57.84\\
+&(\textcolor{red}{-0.75})
+&(\textcolor{red}{-0.89})        \\
+\multirow{2}{*}{\textsc{DeePen}(DeepSeek-7B)}  & 52.81   & 60.00\\
+&(\textcolor{green}{+5.84})&(\textcolor{green}{+1.27})        \\
+\multirow{2}{*}{\textsc{DeePen}(LLaMA2-13B)}   & 54.09   & 62.39\\
+&(\textcolor{green}{+4.48})
+&(\textcolor{green}{+10.86})        \\
+% \textsc{GaC}    & 44.90(\textcolor{red}{-4.71})             & 48.38(\textcolor{red}{-10.35})       \\
+\cdashline{1-3}
+\multirow{2}{*}{Ours(DeepSeek-7B)}  &48.90   &60.16\\
+&(\textcolor{green}{+1.93})&(\textcolor{green}{+1.43})       \\
+\multirow{2}{*}{Ours(Mistral-7B)}  &48.90   &60.16\\
+&(\textcolor{red}{-0.71})
+&(\textcolor{green}{+8.63})       \\
+\toprule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+\hspace{5.5mm}
+\begin{minipage}{0.3\textwidth} % 调整宽度
+\centering
+\fontsize{6.2}{7.5} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|cc}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & \multicolumn{2}{c}{Dataset} \\ \cline{2-3} & NQ          & ARC-C         \\ \hline
+Mistral-7B(32K)       & 24.25        & 74.49        \\
+Yi-6B(64K)            & 22.55        & 73.21        \\ \hline
+\multirow{2}{*}{\textsc{LLM-Blender}}    & 22.97        & 72.48\\
+&(\textcolor{red}{-1.28})&(\textcolor{red}{-2.01})        \\
+\multirow{2}{*}{\textsc{DeePen}(Mistral-7B)}  & 25.26   & 76.50\\
+&(\textcolor{green}{+1.01})&(\textcolor{green}{+1.01})        \\
+\multirow{2}{*}{\textsc{DeePen}(Yi-6B)}   & 22.80   & 77.86\\
+&(\textcolor{green}{+0.25})&(\textcolor{green}{+4.65})        \\
+% \textsc{GaC}    &20.72(\textcolor{red}{-3.53})             &68.09(\textcolor{red}{-6.40})        \\
+\cdashline{1-3}
+\multirow{2}{*}{Ours(Mistral-7B)}  &24.76   & 76.54\\
+&(\textcolor{green}{+0.51})&(\textcolor{green}{+2.05})       \\
+\multirow{2}{*}{Ours(Yi-6B)}  &23.28   & 76.54\\&(\textcolor{green}{+0.73})&(\textcolor{green}{+3.33})       \\
+\toprule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+\caption{The influence of vocabulary size on model ensembling effectiveness}
+\label{table:vocab differences}
+\vspace{-1em}
+\end{table*}
+
+\begin{table*}[t!]
+\fontsize{8}{9} \selectfont
+\centering
+\bgroup
+\def\arraystretch{1,2}
+\begin{tabular}{c|cccc}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & \multicolumn{4}{c}{Datasets}  \\ \cline{2-5} 
+                         & GSM8K & PIQA  & ARC-C & NQ    \\ \hline
+LLaMA2-13B      & 31.77 & 55.39 & 51.53 & 35.53 \\
+Mistral-7B  & 56.48 & 80.63 & 74.49 & 24.25 \\ \hline
+\textsc{LLM-Blender}              & 46.88(\textcolor{red}{-9.60}) & 75.95(\textcolor{red}{-4.68}) & 66.55(\textcolor{red}{-7.94}) & 29.27(\textcolor{red}{-6.26}) \\
+\textsc{DeePen} (LLaMA2-13B)  & 45.41(\textcolor{green}{+13.64}) & 73.54(\textcolor{green}{+18.15}) & 71.11(\textcolor{green}{+19.58}) & 28.73(\textcolor{red}{-6.8}) \\
+\textsc{DeePen} (Mistral-7B)  & 54.28(\textcolor{red}{-2.20}) & 73.38(\textcolor{red}{-7.25}) & 74.10(\textcolor{red}{-0.39}) & 26.76(\textcolor{green}{+2.51}) \\
+\textsc{GaC}     & 38.67 (\textcolor{red}{-17.81})     & 67.08(\textcolor{red}{-13.55})      & 58.79 (\textcolor{red}{-15.70})     & 31.55(\textcolor{red}{-3.98})\\     \cdashline{1-5}
+Ours (LLaMA2-13B)    & 50.12(\textcolor{green}{+18.35})      &80.79(\textcolor{green}{+25.40})     &58.79(\textcolor{green}{+7.26})      &33.75(\textcolor{red}{-1.78})   \\
+Ours (Mistral-7B)    & 55.67(\textcolor{red}{-0.81})     & 80.79(\textcolor{green}{+0.16})    & 58.70(\textcolor{red}{-15.79})     & 28.10(\textcolor{green}{+3.85})  \\
+\bottomrule[0.8pt]
+\end{tabular}
+\caption{The impact of model performance disparity on the model ensembling across different datasets and methods. The content in parentheses indicates on which the model is based correspondingly. For \textsc{LLM-Blender} and \textsc{GaC}, we compare it with the best base model performance.}
+\label{table:disparity}
+\egroup
+\end{table*}
+
+\begin{table*}[t!]
+\fontsize{7}{8} \selectfont
+\centering
+\bgroup
+\def\arraystretch{1,2}
+\begin{tabular}{l|l}
+\toprule[0.8pt]
+\multirow{2}{*}{Question}             & who wrote he ain't heavy he's my brother lyrics                       \\
+& who was the ruler of england in 1616                   \\ \hline
+\multirow{2}{*}{Gold answer}          & Bob Russell    \\
+                                      & James I \\ \hline
+\multirow{2}{*}{LLaMA3 response}      & Bob Russell \usym{2713}\\
+                                      & James I \usym{2713}\\ \hline
+\multirow{2}{*}{Qwen2 response}       & \begin{tabular}[c]{@{}l@{}}He Ain't Heavy, He's My Brother was written by \textcolor{red}{Mike D'Abo}. \usym{2717}\\ The song was originally recorded by the British singer-songwriter and released as a single in 1969. \\ It became a hit and has since been covered by numerous artists. \\ 
+$\cdots$
+\end{tabular}   \\\cdashline{2-2}
+& \begin{tabular}[c]{@{}l@{}}The ruler of England in 1616 was \textcolor{green}{King James I}. \usym{2713}\\ He was the first monarch of the Stuart dynasty and reigned from March 24, 1603, until his death on July 19, 1625. \\ 
+$\cdots$
+\end{tabular} \\ \hline
+\multirow{2}{*}{LLM-Blender response} & \begin{tabular}[c]{@{}l@{}}He Ain't Heavy, He's My Brother was written by \textcolor{red}{Mike D'Abo}. \usym{2717}\\ The song was originally recorded by the British singer-songwriter and released as a single in 1969. \\ It became a hit and has since been covered by numerous artists. \\$\cdots$ \end{tabular}  \\\cdashline{2-2}
+& \begin{tabular}[c]{@{}l@{}}The ruler of England in 1616 was \textcolor{green}{King James I}. \usym{2713}\\He was the first monarch of the Stuart dynasty and reigned from March 24, 1603, until his death on July 19, 1625. \\ $\cdots$\end{tabular} \\ \bottomrule[0.8pt]
+\end{tabular}
+\caption{Responses of different methods on NQ dataset.}
+\label{table:nq}
+\egroup
+\vspace{-1em}
+\end{table*}
+
+\begin{table*}[t!]
+\fontsize{7}{8} \selectfont
+\centering
+\bgroup
+\def\arraystretch{1,2}
+\begin{tabular}{cccccc}
+\toprule[0.8pt]
+\multicolumn{1}{c|}{\multirow{2}{*}{Method}} & \multicolumn{4}{c}{Dataset}                               & \multirow{2}{*}{Avg.} \\ \cline{2-5}
+\multicolumn{1}{c|}{}                        & GSM8K          & PIQA         & ARC-C        & MMLU         &                       \\ \hline
+\multicolumn{1}{c|}{LLaMA3}                  & 78.77        & 79.08        & 79.01        & 64.58        & 75.36                 \\
+\multicolumn{1}{c|}{LLaMA3.1}                & 80.83        & 82.86        & 79.49        & 66.69        & 77.47                 \\
+\multicolumn{1}{c|}{Qwen2}                   & 80.78        & 84.57        & 84.92        & 64.96        & 78.81                 \\ \hline
+\multicolumn{6}{c}{\textit{Two-model ensembling (LLaMA3+Qwen2)}} \\ [1ex]\hline
+\multicolumn{1}{c|}{\textsc{LLM-Blender}}             & 82.69 (+1.91) & 82.53 (-2.04) & 82.98 (-1.94) & 62.07 (-2.89) & 77.57 (-1.24)          \\
+\rowcolor{lightgray} % 设置整行灰色
+\multicolumn{1}{c|}{\textsc{DeePen}} & \multicolumn{5}{c}{- OOM -} \\ 
+\multicolumn{1}{c|}{\textsc{GaC}}  &  80.67 (-0.11)  & 80.96 (-3.61) & 84.93 (+0.01)    & 67.05 (+2.09)      &78.40 (-0.41)                       \\
+\multicolumn{1}{c|}{\textsc{UniTE}}                    & \colorbox{lightgreen}{84.17}(+3.39) & \colorbox{lightgreen}{85.53}(+0.96) & \colorbox{lightgreen}{85.07}(+0.15) & \colorbox{lightgreen}{69.78}(+4.82) & \colorbox{lightgreen}{81.14}(+2.33)          \\ \hline
+\multicolumn{6}{c}{\textit{Three-model ensembling}}\\ [1ex]\hline 
+\multicolumn{1}{c|}{\textsc{LLM-Blender}}             & 83.30(+2.52) & 83.47(-1.10) & 83.48(-1.44) & 62.55(-2.41) & 78.20(-0.61)          \\
+\rowcolor{lightgray} % 设置整行灰色
+\multicolumn{1}{c|}{\textsc{DeePen}} & \multicolumn{5}{c}{- OOM -} \\
+\multicolumn{1}{c|}{\textsc{UniTE}}                    & \colorbox{lightgreen}{84.99}(+4.21) & \colorbox{lightgreen}{84.98}(+0.41) & \colorbox{lightgreen}{85.39}(+0.47) & \colorbox{lightgreen}{69.12}(+4.16) & \colorbox{lightgreen}{81.12}(+2.31)                              \\\bottomrule[0.8pt]
+\end{tabular}
+\caption{Results of ensembling on LLaMA3, LLaMA3.1, Qwen2. Qwen2 is chosen as primary model for these experiments.}
+\label{table:main2}
+\egroup
+\vspace{-2.7em}
+\end{table*}
+
+\begin{table*}[t!]
+\fontsize{6}{7} \selectfont
+\centering
+\bgroup
+\def\arraystretch{1,2}
+\begin{tabular}{c|ccccccc}
+\toprule[0.8pt]
+\multirow{2}{*}{Method} & \multicolumn{6}{c}{Dataset}                                                              & \multirow{2}{*}{Avg.} \\ \cline{2-7} & GSM8K        & PIQA          & MMLU         & ARC-C        & TriviaQA     & NQ           &                       \\ \hline
+Mistral                 & 56.48        & \underline{80.63}   &\underline{59.28}  & \underline{74.49}  & \underline{64.30}  & \underline{24.25}  & 59.91                 \\
+DeepSeek                & \underline{59.67}  & 72.66         & 46.97        & 58.73        & 47.63        & 11.37        & 49.51                 \\
+OpenChat                & \colorbox{lightgreen}{\underline{73.46}}  & \underline{87.10}   & \underline{60.80}  & \underline{78.05}  & \underline{61.77}  & \underline{31.08}  & 65.38                 \\ \hline
+\textsc{LLM-Blender }            & 70.79(-2.67) & 83.28(-3.82)  & 60.10(-0.70) & 76.29(-1.76) & 56.35(-5.42) & 25.57(-5.51) & 62.06(-3.32)          \\
+\textsc{DeePen}                 & 73.06(-0.40) & 76.04(-11.06) & 61.91(+1.11) & 72.14(-5.91) & \colorbox{lightgreen}{67.24}(+5.47) & 28.26(-2.82) & 63.11(-2.27)          \\
+\textsc{GaC}   & 62.85(-10.61)      & 67.85(-19.25)          &55.15(-5.65)     & 73.04(-5.01)       & 62.22(+0.45)             &20.72(-10.36)    & 56.97(-8.41)                      \\
+\textsc{UniTE}                   & 73.31(-0.15) & \colorbox{lightgreen}{87.50}(+0.40)  & \colorbox{lightgreen}{62.13}(+1.33) & \colorbox{lightgreen}{78.70}(+0.65) & 65.80(+4.03) & \colorbox{lightgreen}{31.78}(+0.70) & \colorbox{lightgreen}{66.54}(+1.16)          \\ \bottomrule[0.8pt]
+\end{tabular}
+\caption{Results of ensembling on Mistral, DeepSeek, OpenChat. OpenChat is chosen as primary model for these experiments.}
+\label{table:main1}
+\egroup
+\vspace{-1.5em}
+\end{table*}
+
+
+\begin{table*}[t!]
+\centering
+\begin{minipage}{0.4\textwidth}
+\fontsize{7}{8} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|c}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & Datasets \\ \cline{2-2} 
+& GSM8K \\ \hline
+LLaMA2-7B  & 17.66  \\
+Mistral-7B & 56.48 \\ \hline
+\textsc{LLM-Blender}   & 43.61(\textcolor{red}{-12.87})    \\
+\textsc{DeePen}(LLaMA2-7B)  & 33.66(\textcolor{green}{+16.00}) \\
+\textsc{DeePen}(Mistral-7B)  & 52.24 (\textcolor{red}{-4.24})    \\
+\textsc{GaC}     & 38.67 \\
+\bottomrule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+\hspace{0.5em}
+% \hfill
+\begin{minipage}{0.4\textwidth}
+\fontsize{7}{8} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|c}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & Datasets \\ \cline{2-2} 
+& GSM8K  \\ \hline
+LLaMA2-13B      & 31.77  \\
+Mistral-7B      & 56.48   \\ \hline
+\textsc{LLM-Blender}     & 46.88(\textcolor{red}{-9.60})    \\
+\textsc{DeePen}(LLaMA2-13B)  & 45.41(\textcolor{green}{+13.64}) \\
+\textsc{DeePen}(Mistral-7B)  & 54.28 (\textcolor{red}{-2.20})    \\
+\textsc{GaC}(LLaMA2-13B)     &   \\
+\textsc{GaC}(Mistral-7B)     &    \\
+\bottomrule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+
+\vspace{1em} % Add some vertical space between the rows
+
+\begin{minipage}{0.4\textwidth}
+\fontsize{7}{8} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|c}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & Datasets  \\ \cline{2-2} 
+& GSM8K       \\ \hline
+Mistral-7B   & 56.48  \\
+openchat\_3.5  & 73.46  \\ \hline
+\textsc{LLM-Blender}   & 68.26(\textcolor{red}{-5.20})    \\
+\textsc{DeePen}(Mistral-7B)  & 62.17(\textcolor{green}{+5.69}) \\
+\textsc{DeePen}(openchat\_3.5)  & 69.98 (\textcolor{red}{-3.48})    \\
+\textsc{GaC}(Mistral-7B)     &    \\
+\textsc{GaC}(openchat\_3.5)     &  \\
+\bottomrule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+\hspace{0.5em}
+% \hfill
+\begin{minipage}{0.4\textwidth}
+\fontsize{7}{8} \selectfont
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{c|c}
+\toprule[0.8pt]
+\multirow{2}{*}{Methods} & Datasets                           \\ \cline{2-2} 
+& GSM8K     \\ \hline
+LLaMA3-8B     & 78.77     \\
+Qwen2-7B    & 80.97  \\ \hline
+\textsc{LLM-Blender}              & 83.3(\textcolor{green}{+2.33})    \\
+\textsc{DeePen}(LLaMA3-8B)  & \textit{OOM} \\
+\textsc{DeePen}(Qwen2-7B)  & \textit{OOM}     \\
+\textsc{GaC}(LLaMA3-8B)     & \\
+\textsc{GaC}(Qwen2-7B)     &     \\
+\bottomrule[0.8pt]
+\end{tabular}
+\egroup
+\end{minipage}
+\caption{The impact of performance differences on model ensembling effectiveness on GSM8K dataset. \textit{OOM} represents out of memory issue.}
+\label{table:gsm differences}
+\end{table*}
+
+
+
+\begin{table*}[t!]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering 
+        \fontsize{6.5}{8} \selectfont
+        \begin{tabular}{c|c|c}
+            \toprule[0.8pt]
+            Base Model                                                                                          & Method & Tokens Manipulated Each Step \\ \hline
+            \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Mistral(32678)\\ +\\ Openchat(32002)\end{tabular}} & \textsc{DeePen}  & 32000                        \\ 
+            & \textsc{GaC}     & 32770                        \\ 
+            & \textsc{UniTE}   & \colorbox{lightgreen}{14.46}                        \\ \hline
+            \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}LLaMA3(128256)\\ +\\ Qwen2(151646)\end{tabular}}   & \textsc{DeePen}  & 109566                       \\ 
+            & \textsc{GaC}     & 170336                       \\ 
+            & \textsc{UniTE}   &\colorbox{lightgreen}{14.43}   \\ \bottomrule[0.8pt]
+        \end{tabular}
+        \caption{Tokens manipulated at each step. It's noteworthy that \textsc{DeePen} encountered out of memory issues when conducting LLaMA3 and Qwen2 ensembling.}
+        \label{table:token each step}
+        \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \fontsize{7}{8} \selectfont
+        \def\arraystretch{1.2}
+        \centering
+        \begin{tabular}{l|ll}
+            \toprule[0.8pt]
+            \multicolumn{1}{l|}{Model}                & ARC-C & PIQA \\ \hline
+            Qwen1.5-72B(Dense)   &69.03      &73.83      \\
+            Mixtral-8x7B(Sparse) &73.98      &74.59      \\
+            \textsc{UniTE}                                     &\colorbox{lightgreen}{78.84} (+4.86)      &\colorbox{lightgreen}{81.88} (+7.29)      \\ \bottomrule[0.8pt]
+        \end{tabular}
+        \caption{Ensemble learning of the dense large language model Qwen1.5-72B and the sparse MOE model Mixtral-8x7B.}
+        \label{table:dense}
+    \end{minipage}
+\end{table*}
+
+
+\begin{table*}[t!]
+\fontsize{7}{8} \selectfont
+\centering
+\bgroup
+\def\arraystretch{1,2}
+\begin{tabular}{ll|l}
+\toprule[0.8pt]
+\multicolumn{2}{l|}{Question}                                & \begin{tabular}[c]{@{}l@{}} Tom plants 10 trees a year. Every year he also chops down 2 trees a year.\\ He starts with 50 trees.  After 10 years 30\% of the trees die.\\ How many trees does he have left?\end{tabular}\\ \hline
+\multicolumn{2}{l|}{Gold Answer}                             & \begin{tabular}[c]{@{}l@{}} He gets $10-2 = <<10-2=8>>8$ new trees a year. \\ After 10 years he has $8*10=<<8*10=80>>80$ new trees\\ so he had $80+50=<<80+50=130>>130$ trees\\ He lost $130*.3=<<130*.3=39>>39$ trees\\That means he had $130-39=<<130-39=91>>\colorbox{lightgreen}{91}$ trees\end{tabular} \\ \hline
+\multicolumn{2}{l|}{LLaMA3 Response} & \begin{tabular}[c]{@{}l@{}} Tom starts with 50 trees.\\He plants 10 trees a year, so after 10 years he has 50+10*10= 150 trees.\\However, he chops down 2 trees a year, so after 10 years he has 150-2*10= 140 trees.\\30\% of the trees die, which means 30/100*140= 42 trees die.\\Tom is left with 140-42= 98 trees.\\The answer is \/boxed\{\colorbox{lightblue}{98}\}\end{tabular}          \\\hline
+\multicolumn{2}{l|}{LLaMA3.1 Response}                       & \begin{tabular}[c]{@{}l@{}} Tom starts with 50 trees and plants 10 trees a year, so after 10 years he will have 50+10*10= 150 trees.\\However, he also chops down 2 trees a year, so after 10 years he will have 150-2*10= 140 trees.\\After 10 years, 30\% of the trees die, so 30\% of 140 is 0.3*140= 42 trees die.\\The number of trees Tom has left is 140-42= 98 trees.\\The answer is \/boxed\{\colorbox{lightblue}{98}\}\end{tabular} \\\hline
+\multicolumn{2}{l|}{Qwen2 Response}                          & \begin{tabular}[c]{@{}l@{}} Tom starts with 50 trees and plants 10 trees a year, so after 10 years he will have 50+10*10= 150 trees.\\ However, he also chops down 2 trees a year, so after 10 years he will have 150-2*10= 140 trees.\\After 10 years, 30\% of the trees die, so 30\% of 140 is 0.3*140= 42 trees die.\\The number of trees Tom has left is 140-42= 98 trees.\\The answer is \/boxed\{\colorbox{lightblue}{98}\}\end{tabular} \\\hline 
+\multicolumn{1}{l|}{\multirow{3}{*}{2-models}}  & LLM-Blender &\begin{tabular}[c]{@{}l@{}} Tom starts with 50 trees and plants 10 trees a year, so after 10 years he will have 50+10*10= 150 trees.\\ However, he also chops down 2 trees a year, so after 10 years he will have 150-2*10= 140 trees.\\After 10 years, 30\% of the trees die, so 30\% of 140 is 0.3*140= 42 trees die.\\The number of trees Tom has left is 140-42= 98 trees.\\The answer is \/boxed\{\colorbox{lightblue}{98}\}\end{tabular}  \\\cline{2-3}
+\multicolumn{1}{l|}{}                          & GaC          &\begin{tabular}[c]{@{}l@{}} Tom plants 10 trees a year and chops down 2 trees a year, \\so the net increase in trees each year is 10 - 2 = 8 trees.\\After 10 years, the total number of trees planted is 10 * 10 = 100 trees.\\The total number of trees chopped down is 2 * 10 = 20 trees.\\So the total number of trees after 10 years is 50 + 100 - 20 = 130 trees.\\If 30\% of the trees die, then the number of trees that die is 30/100 * 130 = 39 trees.\\The number of trees left is 130 - 39 = 91 trees. \\The answer is \/boxed\{\colorbox{lightgreen}{91}\}\end{tabular} \\\cline{2-3}
+\multicolumn{1}{l|}{}                          & \textsc{UniTE}       &\begin{tabular}[c]{@{}l@{}} Tom plants 10 trees a year, so in 10 years he plants 10*10 = 100 trees.\\ He starts with 50 trees, so after planting 100 trees, he has 50+100 = 150 trees.\\ Every year he chops down 2 trees, \\so in 10 years he chops down 2*10 = 20 trees. \\So, after 10 years, he has 150-20 = 130 trees. \\30\% of the trees die, so 30\% of 130 trees is 0.3*130 = 39 trees. \\Therefore, after 30\% of the trees die, he has 130-39 = 91 trees left. \\The answer is \/boxed\{\colorbox{lightgreen}{91}\}\end{tabular}  \\ \hline
+\multicolumn{1}{l|}{\multirow{2}{*}{3-models}} & LLM-Blender & \begin{tabular}[c]{@{}l@{}} Tom starts with 50 trees and plants 10 trees a year, so after 10 years he will have 50+10*10= 150 trees.\\ However, he also chops down 2 trees a year, so after 10 years he will have 150-2*10= 140 trees.\\After 10 years, 30\% of the trees die, so 30\% of 140 is 0.3*140= 42 trees die.\\The number of trees Tom has left is 140-42= 98 trees.\\The answer is \/boxed\{\colorbox{lightblue}{98}\}\end{tabular} \\\cline{2-3}
+\multicolumn{1}{l|}{}                          & \textsc{UniTE}       &\begin{tabular}[c]{@{}l@{}} Tom plants 10 trees a year and chops down 2 trees a year, \\so he has 10-2=8 more trees each year. \\After 10 years, he will have 8*10=80 more trees. \\He starts with 50 trees, so he will have 50+80=130 trees after 10 years. \\After 10 years, 30\% of the trees die, so 30\% of 130 trees die, which is 0.3*130=39 trees.\\ Therefore, he will have 130-39=91 trees left. \\The answer is \/boxed\{\colorbox{lightgreen}{91}\}\end{tabular}  \\ \bottomrule[0.8pt]
+\end{tabular}
+\caption{Case study of \textsc{UniTE} and other ensembling methods on GSM8K}
+\label{table:case study}
+\egroup
+\end{table*}
+
+\end{document}

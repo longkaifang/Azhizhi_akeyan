@@ -1,0 +1,213 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+\definecolor{indianred}{rgb}{0.8, 0.36, 0.36}
+\definecolor{bleudefrance}{rgb}{0.19, 0.55, 0.91}
+\definecolor{forestgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{ashgrey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{darkorange}{rgb}{1.0, 0.55, 0.0}
+\definecolor{darkorchid}{rgb}{0.6, 0.2, 0.8}
+
+\definecolor{wdcolor}{RGB}{128, 0, 255}
+\newcommand{\dw}[1]{{\color{wdcolor}#1}}
+
+\definecolor{wd_question_color}{RGB}{255, 0, 0}
+\newcommand{\qq}[1]{{\color{wd_question_color}#1}}
+
+\newcommand{\icoyes}{\textcolor{forestgreen}{\faCheckCircle}\xspace}
+% \newcommand{\icohalf}{\textcolor{darkorange}{\faCheckCircle}\xspace}
+\newcommand{\icono}{\textcolor{ashgrey}{\faTimesCircle}\xspace}
+\usepackage{tikz}
+
+\usepackage{pifont}
+\newcommand{\Gray}[0]{\rowcolor{gray!20}}
+\newcommand{\Lgray}[0]{\rowcolor{gray!10}}
+\newcommand{\lightgrey}[1]{\texttt{\color{black!50} #1}}
+
+\newcommand{\icohalf}{\textcolor{darkorange}{\ding{51}\kern-0.65em\ding{55}}}
+
+
+\newcommand{\Nimages}{29,614\space}
+\newcommand{\Nref}{52,472\space}
+\newcommand{\Nvqa}{123,221\space}
+
+\begin{document}
+
+\begin{table*}[t!]
+\footnotesize
+ \vspace{-5mm}
+    \caption{Visual grounding performance on XLRS-Bench and VRSBench~\cite{vrsbench}. *: VRSBench uses GPT-4V to assess this task.}
+    \centering
+    \resizebox{0.98\textwidth}{!}{
+     \begin{tabular}{l|ccccccccccccc}
+        \toprule \Gray
+        \textbf{Benchmark} & \textbf{Method}  & \textbf{GPT-4o}* & \textbf{GPT-4o-mini} & \textbf{Qwen2-VL} & \textbf{LLaVA-OneVision} & \textbf{LLaVA-Next} & \textbf{LLaVA-1.5} & \textbf{CogVLM2} & \textbf{InternLM-XComposer-2.5} & \textbf{InternVL2} & \textbf{GeoChat} \\
+        \hline
+       \multirow{2}{*}{XLRS-Bench-EN}&Acc@0.5  &  \textbf{0.46} & 0.09 & 0.15 & 0.16 & 0.18 & 0.09 & 0.01 & 0.02 & 0.33 & 0.14 \\
+                                    &Acc@0.7  &  0.05 & 0.03 & 0.03 & 0.00 & 0.04 & 0.00 & 0.00 & 0.01 & \textbf{0.12} & 0.01 \\ \midrule
+      \multirow{2}{*}{XLRS-Bench-ZH}&Acc@0.5 &  \textbf{0.45} & 0.21 & 0.14 & 0.13 & 0.07 & 0.12 & 0.03 & 0.06 & 0.19 & 0.14 \\
+                                    &Acc@0.7  & 0.03 & 0.03 & 0.01 & 0.01 & 0.02 & 0.02 & 0.00 & 0.00 & \textbf{0.06} & 0.01 \\
+ \midrule
+         \multirow{2}{*}{VRSBench}&   Acc@0.5 & 5.1 & -  & - & - & - & - & - & - & - & - \\ 
+        &Acc@0.7  & 1.1 & -  & - & -& - & - & - & - & - & - \\
+        
+        \bottomrule
+    \end{tabular}
+    }
+
+    \label{tab_ref}
+    \vspace{-7mm}
+    
+\end{table*}
+
+
+\begin{table*}[t!]
+\footnotesize
+    \centering
+        \caption{Comparison between existing vision-language benchmarks and our benchmark. \icoyes, \icono and \icohalf separately represent the annotations are machine generated, manually written and semi-automated, \textit{i.e.}, machine generation followed by human verification.}
+    \resizebox{0.98\textwidth}{!}{
+    \begin{tabular}{l|c|c|cc|cc|cc}
+        \toprule
+        \multirow{2}{*}{Dataset} & \multirow{2}{*}{Average Resolution} & \multirow{2}{*}{Remote Sensing} & \multicolumn{2}{c}{Detailed Caption} & \multicolumn{2}{c}{Visual Grounding} & \multicolumn{2}{c}{VQA} \\
+        \cline{4-5} \cline{6-7} \cline{8-9}
+         &  &  & Volume & Average Length & Volume & Annotation Method & Volume & Annotation Method   \\
+        \hline
+MMStar~\cite{mmstar} & 512$\times$375& N & - & - & - & \icono & 1,500 & \icono  \\
+ScienceQA~\cite{scienceqa} & 378$\times$249&  N & -&- & - & \icono &21,000 & \icono \\
+%ChartQA & 840$\times$535&  \icono& \icono & \icono & \icono & \icono &32,719 & \icono \\
+MM-Vet~\cite{mmvet} & 1,200$\times$675& N  & -& - &- & \icono &218 & \icono  \\
+Seed-Bench~\cite{seedbench}  & 1,024$\times$931& N  &- &- &- & \icono &19,242 & \icono  \\
+%SEED-Bench-2-Plus& 1128$\times$846& \icono & \icono & \icono & \icono & \icono & 2300 &\icono  \\
+MMT-Bench~\cite{mmtbench} & 2,365$\times$377&  N & - & - & - & \icono & 32,325 & \icono \\
+%MathVista & 539$\times$446& \icono& \icono & \icono & \icono & \icono & 735 & \icono \\
+TouchStone~\cite{touchstone} & 897$\times$803& N & - & - & - & \icono & 908 & \icono \\
+VisIT-Bench~\cite{visitbench}  & 765$\times$1,024&  N & - & - &- & \icono & 1,159 & \icono \\
+BLINK~\cite{blink} & 620$\times$1,024& N & -& - & - & \icono & 3,807 & \icono  \\
+CV-Bench~\cite{cvbench} & 1,024$\times$768&  N & - & - & - & \icono & 2,638&\icono \\ 
+%TextVQA& 985$\times$768& \icono& \icono & \icono & \icono & \icono & 5734 & \icoyes  \\
+MME~\cite{mme} & 1,161$\times$840&  N & - & - & - & \icono & 2,374 & \icoyes  \\
+MMBench~\cite{mmbench}  & 512$\times$270 &  N & - & - & - & \icono & 3,217 & \icoyes \\ 
+MME-Realworld~\cite{mmerealworld}  & 2,000$\times$1,500&  N & -& - &- & \icono & 29,429 & \icoyes \\ \midrule
+        UCM-Captions~\cite{ucmcaption} & 250$\times$250 & Y & 10,500  & 12 & - & \icono & - & \icono  \\
+        RSICD \cite{rsicd} & 500$\times$500 & Y & 54,605  & 12 & - & \icono & - & \icono  \\
+        RSICap~\cite{rsgpt} & 512$\times$512 & Y & 2,585 & 60 & - & \icono & - & \icono\\
+        RSVG~\cite{rsvg} & 800$\times$800 & Y & -& - & 7,933 & \icohalf & - & \icono \\
+        DIOR-RSVG \cite{diorrsvg} & 800$\times$800 & Y & - & - & 38,320 & \icohalf & - & \icono  \\
+        RRSIS-D \cite{rrsisd} & 800$\times$800 &Y & - & - & 17,402 & \icohalf & - & \icono \\
+        RSVQA-HR \cite{rsvqahr} & 1,024$\times$1,024 & Y & - & -&  -& \icono & 1,066,316 & \icono  \\
+        RSIVQA \cite{rsivqa} & 512$\times$512 & Y & - & - & - & \icono & 111,134 & \icohalf \\
+        %VQA-TextRS \cite{al2022open} &  & \icono & \icono & \icono & \icono & \icono & 6,245 & \icohalf  \\
+        RSIEval \cite{rsgpt} & 512$\times$512 & Y & -& - & - & \icono & 933 & \icohalf\\
+        VRSBench \cite{vrsbench}                   &  512$\times$512  & Y & 29,614 & 52 & 52,472 & \icohalf & 123,231 & \icohalf  \\ \midrule
+       XLRS-Bench& 8,500 $\times$8,500 &Y&934&379&12,619& \icoyes&32,389& \icoyes\\
+        \bottomrule
+    \end{tabular}
+    }
+    \vspace{-5mm}
+\end{table*}
+
+
+\begin{table*}[htbp]
+\footnotesize
+\caption{
+Experimental results on the perception and reasoning dimensions of VQA tasks, with models ranked by average performance. Proprietary models are highlighted in gray. 'Avg' represents the average accuracy across sub-tasks.
+}
+\label{tab:vqa}
+\centering
+\resizebox{0.98\textwidth}{!}{%
+\begin{tabular}{llc|cccc|cccc|c}
+\toprule \Gray
+\multicolumn{1}{c}{\textbf{Method}} & \multicolumn{1}{c}{\textbf{LLM}}& \multicolumn{1}{c}{\textbf{Language}} & \multicolumn{4}{c}{\textbf{Perception}}  & \multicolumn{4}{c}{\textbf{Reasoning}} &  \\  \midrule
+\multicolumn{3}{c}{\multirow{2}{*}{\textbf{Sub-tasks (L-2 Capability)}}} & \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Counting}}} & \textbf{Scene} & \textbf{Object} & \textbf{Object}  & \textbf{Complex} & \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Planning}}} & \textbf{Spatiotemporal} & \textbf{Anomaly} &\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Avg.}}}\\  
+ & && & \textbf{Classification} & \textbf{Spatial Relationship} & \textbf{Properties}  & \textbf{Reasoning} &  & \textbf{Reasoning} & \textbf{Reasoning} \\ \midrule
+
+CogVLM2 & Llama3-8B & en & 36.66 & 46.26 & \textbf{35.92} & \textbf{36.89} & 60.23 & 34.16 & - & 69.85 & \textbf{39.80} \\
+Qwen2-VL & Qwen2-7B & en & \textbf{39.72} & 48.30 & 32.04 & 35.07 & 64.23 & 32.12 & \textbf{45.93} & 68.35 & 38.99 \\
+LLaVA-OneVision & Qwen2-7B & en & 35.84 & 47.76 & 32.60 & 35.95 & 60.37 & 24.07 & 37.78 & 71.88 & 38.90 \\
+\Lgray GPT-4o-mini & - & en & 28.32 & 45.46 & 29.96 & 36.29 & 54.84 & 33.81 & 15.19 & 72.06 & 37.99 \\
+InternVL2 & InternLM2.5-7B & en & 33.91 & 44.93 & 26.60 & 34.84 & \textbf{66.43} & 33.01 & 44.44 & \textbf{74.54} & 37.89 \\
+InternLM-XComposer-2.5 & InternLM2-7B & en & 35.84 & 47.43 & 32.75 & 30.60 & 64.76 & 35.31 & 32.22 & 69.50 & 36.33 \\
+LLaVA-Next & Llama3-8B & en & 38.00 & 40.79 & 32.50 & 31.22 & 61.85 & 26.02 & 32.22 & 69.10 & 35.65 \\
+\Lgray GPT-4o & - & en & 29.51 & \textbf{48.55} & 32.35 & 24.78 & 52.60 & \textbf{41.24} & 21.85 & 72.06 & 32.15 \\
+LLaVA-1.5 & Vicuna-7B & en & 22.65 & 19.69 & 23.05 & 20.21 & 33.86 & 38.67 & 29.26 & 34.70 & 22.81 \\
+GeoChat & Vicuna-7B & en & 22.65 & 18.96 & 23.30 & 20.21 & 30.33 & 32.23 & - & 33.25 & 22.03 \\
+
+\midrule
+Qwen2-VL & Qwen2-7B & zh & \textbf{39.4}9 & \textbf{49.28} & 33.26 & \textbf{37.89} & 67.62 & 24.34 & \textbf{44.44} & \textbf{76.57} & \textbf{41.10} \\
+InternVL2 & InternLM2.5-7B & zh & 34.42 & 39.12 & 34.24 & 37.54 & \textbf{68.57} & 40.09 & 44.07 & 76.57 & 40.58 \\
+LLaVA-OneVision & Qwen2-7B & zh & 37.48 & 47.06 & 31.73 & 34.72 & 62.56 & 29.12 & 30.37 & 74.80 & 38.42 \\
+\Lgray GPT-4o-mini & - & zh & 29.51 & 44.13 & 29.59 & 35.41 & 55.36 & \textbf{41.86} & 21.85 & 74.71 & 37.82 \\
+InternLM-XComposer-2.5 & InternLM2-7B & zh & 37.70 & 43.15 & 32.62 & 33.40 & 62.99 & 29.47 & 24.44 & 69.14 & 37.26 \\
+CogVLM2 & Llama3-8B & zh & 36.21 & 45.79 & \textbf{34.57} & 31.03 & 59.56 & 26.19 & - & 70.47 & 35.84 \\
+LLaVA-Next & Llama3-8B & zh & 33.08 & 39.52 & 31.98 & 29.34 & 54.07 & 21.59 & 25.56 & 69.85 & 33.48 \\
+\Lgray GPT-4o & - & zh & 22.28 & 45.47 & 31.25 & 24.93 & 45.45 & 27.08 & 15.19 & 69.41 & 30.40 \\
+LLaVA-1.5 & Vicuna-7B & zh & 22.65 & 19.07 & 23.01 & 20.21 & 33.95 & 38.67 & 29.26 & 37.58 & 22.86 \\
+GeoChat & Vicuna-7B & zh & 22.65 & 19.17 & 23.05 & 20.21 & 24.75 & 22.79 & - & 23.74 & 20.99 \\
+
+ \bottomrule
+\end{tabular}%
+}
+\vspace{-0.4cm}
+\end{table*}
+
+\end{document}

@@ -1,0 +1,367 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{subcaption}
+
+\definecolor{lightblue}{RGB}{173, 216, 230} % Light blue color
+% \definecolor{darkerblue}{RGB}{70, 130, 180}
+\definecolor{darkerblue}{RGB}{0, 102, 204}
+\definecolor{darkblue}{RGB}{0, 0, 139}
+\definecolor{lightorange}{RGB}{255, 223, 186} % Light blue color
+\definecolor{forestgreen}{RGB}{34, 139, 34}
+\definecolor{firebrickred}{RGB}{178, 34, 34}
+\definecolor{darkorange}{RGB}{255, 140, 0}
+
+\begin{document}
+
+
+\begin{table*}[t!]
+    \centering
+    \small
+\begin{subtable}[h!]{0.3\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightblue}
+        \texttt{SigLIP} & $51.0$ & $60.1 \pm 0.4$ \\
+        \rowcolor{lightorange}
+        \texttt{Sig\textbf{LIxP}} & $50.5$ & $64.1 \pm 0.5$ \\
+        No masking & $50.9$ & $60.5 \pm 0.4$ \\        
+        ~ \\
+    \end{tabular}}
+\caption{\textbf{Self-Attention Masking}\vspace{1em}}
+\label{tab:ablations_method_1_1}
+\end{subtable}
+~
+\begin{subtable}[h!]{0.3\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        $\alpha=0.95$ & $50.8$ & $62.5 \pm 0.3$ \\
+        \rowcolor{lightorange}
+        $\alpha=0.9$ & $50.5$ & $64.1 \pm 0.5$ \\
+        $\alpha=0.8$ & $50.0$ & $63.8 \pm 0.3$ \\
+        $\alpha=0.6$ & $48.7$ & $61.5 \pm 0.4$ \\
+    \end{tabular}}
+\caption{\textbf{Relative weighting}\vspace{1em}}
+\label{tab:ablations_method_1_2}
+\end{subtable}
+~
+\begin{subtable}[h!]{0.3\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+        Single-Stage & $50.5$ & $64.1 \pm 0.5$ \\
+        Residual & $49.2$ & $59.2 \pm 0.4$ \\
+        Multimodal & $47.9$ & $61.4 \pm 0.4$ \\
+        Two-Stage & $50.5$ & $62.0 \pm 0.3$ \\
+        % (d) Multimodal TS $m=2$ & $50.0$ & $63.8 \pm 0.3$ \\
+    \end{tabular}}
+\caption{\textbf{Contextualization Type}\vspace{1em}}
+\label{tab:ablations_method_1_3}
+\end{subtable}
+        
+\begin{subtable}[h!]{\columnwidth}
+    \centering
+    \resizebox{0.75\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+        $\tau_1, \tau_2, \tau_\text{ctx}$ learnable & $50.5$ & $64.1 \pm 0.5$ \\        
+        $\tau_1 = \tau_2, \tau_\text{ctx}$ & $47.8$ & $61.8 \pm 0.4$ \\
+        $\tau_1, \tau_2 = \tau_\text{ctx}$ & $50.4$ & $60.2 \pm 0.6$ \\
+        $\tau_\text{ctx}$ frozen & $47.1$ & $59.4 \pm 0.5$\\
+    \end{tabular}}
+\caption{\textbf{Uncoupled, learnable temperatures}}
+\label{tab:ablations_method_1_4}
+\end{subtable}
+~
+\begin{subtable}[h!]{\columnwidth}
+    \centering
+    \resizebox{0.75\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+Full back-propagation & $50.5$ & $64.1 \pm 0.5$ \\       
+Stop Gradient: $\{K\}$ & $49.6$ & $62.7 \pm 0.4$ \\
+Stop Gradient: $\{V\}$ & $43.8$ & $58.7 \pm 0.2$ \\
+        Stop Gradient: $\{K, V\}$ & $44.4$ & $56.5 \pm 0.4$ \\
+    \end{tabular}}
+\caption{\textbf{Back-propagation through memory buffer}}
+\label{tab:ablations_method_1_5}
+\end{subtable}
+\vspace{-8pt}
+\caption{Context-Aware Pretraining Ablations.
+}
+\label{tab:ablations_method_1}
+\end{table*}
+
+\begin{table*}[t!]
+\centering
+\begin{subtable}[h!]{0.32\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightblue}
+        \texttt{SigLIP} & $51.0$ & $60.1 \pm 0.4$ \\
+        \rowcolor{lightorange}
+        \texttt{Sig\textbf{LIxP}} & $50.5$ & $64.1 \pm 0.5$ \\
+        Separate Batch & $48.8$ & $63.2 \pm 0.3$ \\        
+        ~ \\
+    \end{tabular}}
+\caption{\textbf{Context Batch Separation}\vspace{1em}}
+\label{tab:ablations_method_2_1}
+\end{subtable}
+~
+\begin{subtable}[h!]{0.32\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+        None & $50.5$ & $64.1 \pm 0.5$ \\
+        linear & $50.2$ & $62.8 \pm 0.2$\\
+        2-layer MLP & $49.8$ & $61.1 \pm 0.2$\\
+        % V MLP (2-layer, large) & $50.0$ & $61.9 \pm 0.3$\\
+        3-layer MLP & $49.1$ & $60.8 \pm 0.3$\\
+    \end{tabular}}
+\caption{\textbf{Value Heads for $\mathcal{M}_V$}\vspace{1em}}
+\label{tab:ablations_method_2_2}
+\end{subtable}
+~
+\begin{subtable}[h!]{0.32\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightblue}
+        \texttt{SigLIP} & $51.0$ & $60.1 \pm 0.4$ \\
+        \rowcolor{lightorange}
+        \texttt{Sig\textbf{LIxP}} & $50.5$ & $64.1 \pm 0.5$ \\
+        No Normalization & $48.9$ & $61.7 \pm 0.3$ \\    
+        ~ \\
+    \end{tabular}}
+\caption{\textbf{QK Normalization}\vspace{1em}} % Removing 
+\label{tab:ablations_method_2_3}
+\end{subtable}
+~        
+\begin{subtable}[h!]{0.32\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+        None & $50.5$ & $64.1 \pm 0.5$ \\
+        LayerNorm $\{K\}$ & $46.8$ & $57.1 \pm 0.4$\\
+        LayerNorm $\{V\}$ & $48.5$ & $62.3 \pm 0.5$\\
+        LayerNorm $\{K, V\}$ & $48.3$ & $58.2 \pm 0.3$\\
+    \end{tabular}}
+\caption{\textbf{Layer Normalization on $\mathcal{M}$}}
+\label{tab:ablations_method_2_4}
+\end{subtable}
+~
+\begin{subtable}[h!]{0.32\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+        None & $50.5$ & $64.1 \pm 0.5$ \\       
+        + Stale (32K) & $45.9$ & $59.7 \pm 0.3$\\
+        + Stale (128K) & $46.9$ & $60.5 \pm 0.5$\\
+        + Stale (512K) & $47.2$ & $60.7 \pm 0.4$\\
+    \end{tabular}}
+\caption{\textbf{Inclusion of Stale Buffer}}
+\label{tab:ablations_method_2_5}
+\end{subtable}
+~
+\begin{subtable}[h!]{0.32\linewidth}
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lcc}
+        Method & Zero-Shot & 16-Shot \\
+        \midrule
+        \rowcolor{lightorange}
+        Full (32k) & $50.5$ & $64.1 \pm 0.5$ \\       
+        Subset (1k) & $50.7$ & $59.9 \pm 0.5$ \\
+        Subset (2k) & $50.5$ & $62.9 \pm 0.4$ \\
+        Subset (8k) & $50.3$ & $63.9 \pm 0.3$ \\
+    \end{tabular}}
+\caption{\textbf{Reduced Active Buffer Size}}
+\label{tab:ablations_method_2_6}
+\end{subtable}
+\vspace{-10pt}
+\caption{Context Buffer Ablations.}
+\label{tab:ablations_method_2}
+\vspace{-8pt}
+\end{table*}
+
+\begin{table}[t!]
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{l|ccccc}
+        \textbf{Model} $\rightarrow$ & ViT-S/16 & $\rightarrow$ & ViT-B/16 & $\rightarrow$ & ViT-L/16\\
+        \textbf{Examples} $\rightarrow$ & 1.5B & 6B & 6B & 15B & 8B\\
+        \midrule
+        \multirow{2}{*}{ZeroShot} & $46.9$ & $52.1$ & $60.3$ & $62.5$ & $64.1$\\
+        & \textcolor{forestgreen}{$+0.4$} & \textcolor{firebrickred}{$-0.2$} & \textcolor{firebrickred}{$-0.4$} & \textcolor{firebrickred}{$-0.5$} & \textcolor{firebrickred}{$-0.1$}\\
+        \multirow{2}{*}{Prototypical} & $57.2 \pm 0.2$ & $60.8 \pm 0.3$ & $66.8 \pm 0.2$ & $67.4 \pm 0.3$ & $70.7 \pm 0.3$\\
+        & \textcolor{forestgreen}{$+4.1$} & \textcolor{forestgreen}{$+3.4$} & \textcolor{forestgreen}{$+3.4$} & \textcolor{forestgreen}{$+3.9$}& \textcolor{forestgreen}{$+3.3$}\\
+        %%%%%%
+        \multirow{2}{*}{Default Tip} & $60.3 \pm 0.1$ & $63.6 \pm 0.3$ & $69.5 \pm 0.2$ & $70.2 \pm 0.3$ & $73.2 \pm 0.3$\\
+        & \textcolor{forestgreen}{$+5.4$} & \textcolor{forestgreen}{$+4.8$} & \textcolor{forestgreen}{$+4.3$} & \textcolor{forestgreen}{$+4.3$}& \textcolor{forestgreen}{$+4.0$}\\
+        %%%%%%
+        \multirow{2}{*}{XVal Tip} & $64.7 \pm 0.2$ & $67.8 \pm 0.3$ & $73.8 \pm 0.2$ & $74.7 \pm 0.2$ & $77.0 \pm 0.3$\\
+        & \textcolor{forestgreen}{$+2.4$} & \textcolor{forestgreen}{$+2.3$} & \textcolor{forestgreen}{$+1.6$} & \textcolor{forestgreen}{$+1.6$} & \textcolor{forestgreen}{$+1.4$}\\
+        %%%%%%
+        \multirow{2}{*}{Plurality NN} & $60.4 \pm 0.1$ & $63.8 \pm 0.2$ & $69.1 \pm 0.2$ & $69.6 \pm 0.3$ & $72.6 \pm 0.2$\\
+        & \textcolor{forestgreen}{$+2.5$} & \textcolor{forestgreen}{$+1.9$} & \textcolor{forestgreen}{$+2.3$} & \textcolor{forestgreen}{$+2.6$} & \textcolor{forestgreen}{$+1.8$}\\
+        %%%%%%
+        \multirow{2}{*}{Rank NN} & $64.8 \pm 0.1$ & $68.1 \pm 0.1$ & $73.2 \pm 0.1$ & $74.1 \pm 0.2$ & $76.5 \pm 0.2$\\
+        & \textcolor{forestgreen}{$+1.7$} & \textcolor{forestgreen}{$+1.3$} & \textcolor{forestgreen}{$+1.8$} & \textcolor{forestgreen}{$+1.8$} & \textcolor{forestgreen}{$+1.1$}\\
+        %%%%%%
+        \multirow{2}{*}{Softmax NN} & $64.2 \pm 0.1$ & $67.5 \pm 0.2$ & $72.6 \pm 0.2$ & $73.3 \pm 0.3$ & $75.9 \pm 0.2$\\
+        & \textcolor{forestgreen}{$+2.8$} & \textcolor{forestgreen}{$+2.4$} & \textcolor{forestgreen}{$+2.6$} & \textcolor{forestgreen}{$+2.7$} & \textcolor{forestgreen}{$+1.8$}\\
+        %%%%%%
+        \midrule
+        \textbf{Average Gain} & \textcolor{forestgreen}{$\mathbf{+3.2}$} & \textcolor{forestgreen}{$\mathbf{+2.7}$} & \textcolor{forestgreen}{$\mathbf{+2.7}$} & \textcolor{forestgreen}{$\mathbf{+2.8}$} & \textcolor{forestgreen}{$\mathbf{+2.2}$}\\
+    \end{tabular}}
+    \caption{\textbf{Context-aware pretraining for SigLIP holds across model size and data scale.} Benefits of contextualized pretraining across larger architectures, longer pretraining runs, and combinations of both (here shown for $32$-shot classification for three metric-based classifiers) show that our contextualized pretraining objective boosts performance across model sizes and training duration; with no or at most very marginal drops in zero-shot transfer.}
+    \label{tab:arch_comp}
+    \vspace{-15pt}
+\end{table}
+
+\begin{table}[t!]
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{l|ccccc}
+        \textbf{Model} $\rightarrow$ & ViT-S/16 & $\rightarrow$ & $\rightarrow$ & ViT-B/16 & $\rightarrow$\\
+        \textbf{Examples} $\rightarrow$ & 1.5B & 6B & 15B & 6B & 15B\\
+        \midrule
+        \multirow{2}{*}{ZeroShot} & $47.9$ & $52.1$ & $53.3$ & $60.8$ & $61.9$\\
+        & \textcolor{firebrickred}{$-0.2$} & \textcolor{forestgreen}{$0.0$} & \textcolor{firebrickred}{$-0.1$} & \textcolor{firebrickred}{$-0.2$} & \textcolor{forestgreen}{$+0.5$}\\
+        %%%%%%%
+        \multirow{2}{*}{Prototypical} & $57.0 \pm 0.3$ & $59.5 \pm 0.3$ & $61.5 \pm 0.3$ & $66.3 \pm 0.3$ & $67.3 \pm 0.2$\\
+        & \textcolor{forestgreen}{$+4.0$} & \textcolor{forestgreen}{$+5.0$} & \textcolor{forestgreen}{$+4.0$} & \textcolor{forestgreen}{$+3.7$}& \textcolor{forestgreen}{$+3.4$}\\
+        %%%%%%
+        \multirow{2}{*}{Default Tip} & $60.0 \pm 0.2$ & $62.1 \pm 0.2$ & $63.8 \pm 0.2$ & $68.6 \pm 0.3$ & $69.5 \pm 0.2$\\
+        & \textcolor{forestgreen}{$+5.4$} & \textcolor{forestgreen}{$+6.2$} & \textcolor{forestgreen}{$+5.4$} & \textcolor{forestgreen}{$+4.8$}& \textcolor{forestgreen}{$+4.5$}\\
+        \multirow{2}{*}{Softmax NN} & $64.5 \pm 0.2$ & $66.8 \pm 0.1$ & $68.2 \pm 0.2$ & $72.0 \pm 0.2$ & $73.1 \pm 0.1$\\
+        & \textcolor{forestgreen}{$+2.7$} & \textcolor{forestgreen}{$+2.3$} & \textcolor{forestgreen}{$+2.8$} & \textcolor{forestgreen}{$+2.8$} & \textcolor{forestgreen}{$+2.3$}\\
+    \end{tabular}}
+    \vspace{-8pt}
+    \caption{\textbf{Context-aware pretraining for CLIP.} } % \vspace{-1em}
+    \label{tab:clip_arch_comp}
+    \vspace{-8pt}
+\end{table}
+
+\begin{table}[t!]
+    \centering
+    \resizebox{1\linewidth}{!}{
+    \begin{tabular}{lc|ccccc}
+        \textbf{Method} & \textbf{Train-free} & \textbf{IN-1K} & \textbf{DTD} & \textbf{Food101} & \textbf{Pets} & \textbf{Cars}\\
+        \midrule
+        Linear Probe~\cite{wu2024cascade} & \textcolor{red}{\ding{55}} & 67.3 & 70.0 & 82.9 & 85.3 & 80.4\\
+        TIP-X~\cite{udandarao2022susx} & \textcolor{forestgreen}{\ding{51}} & 71.1 & - & - & - & - \\ 
+        % Tip-Adapter~\cite{zhang2022tipadapter} &  & \ding{51} & \\
+        % CoCoOp~\cite{zhou2022cocop} & \ding{55} & 70.8 & 63.0 & 87.3 & 71.6 & 93.3 \\
+        % CoOp~\cite{zhou2022coop} & \ding{55} & 71.9 & 69.9 & 84.2 & 91.9& 83.1 \\
+        APE~\cite{zhu2023ape} & \textcolor{forestgreen}{\ding{51}} & 72.1 & - & - & - & - \\
+        DMN-TF~\cite{zhang2024dual} & \textcolor{forestgreen}{\ding{51}} & 72.6 & 71.9 & 86.0 & 92.9 & 78.4 \\
+        Clip-Adapter~\cite{gao2021clipadapter} & \textcolor{red}{\ding{55}} & 71.1 & - & - & -\\
+        MaPLe~\cite{khattak2023maple} & \textcolor{red}{\ding{55}} & 72.3 & 71.3 & 85.3 & 92.8 & 83.6\\
+        PromptSRC~\cite{khattak2023promptsrc} & \textcolor{red}{\ding{55}} & 73.2 & 72.7 & 87.5 & 93.7 & 83.8\\
+        Tip-Adapter-F~\cite{zhang2022tipadapter} & \textcolor{red}{\ding{55}} & 73.7 & - & - & - & - \\
+        APE-T~\cite{zhu2023ape} & \textcolor{red}{\ding{55}} & 74.3 & - & - & - & -\\
+        CasPL~\cite{wu2024cascade} & \textcolor{red}{\ding{55}} & 74.2 & 75.1 & 88.4 & 94.1 & 86.7 \\
+        DMN~\cite{zhang2024dual} & \textcolor{red}{\ding{55}} & 74.7 & 75.0 & 87.1 & 94.1 & 85.3 \\
+        \midrule
+        % \textcolor{darkorange}{Sig\textbf{LIxP}}: CVTip & \ding{51} & 77.2 & 75.7 & 92.3 & 94.0 & \textbf{93.6} \\
+        \textcolor{darkorange}{Sig\textbf{LIxP}} & \textcolor{forestgreen}{\ding{51}} & \textbf{77.9} & \textbf{76.7} & \textbf{92.6} & \textbf{94.4} & \textbf{92.8} \\ % : ZS+SNN
+    \end{tabular}}
+    \vspace{-7pt}
+    \caption{\textbf{Comparison against optimization-based methods in literature.} On five standard benchmarks, we compare Sig\textbf{LIxP} with simple \textit{training-free}, softmax-voted nearest-neighbor classifier on top of the base zero-shot classification against e.g. finetuned Tip-Adapter~\cite{zhang2022tipadapter} or SOTA prompt-learning methods~\cite{khattak2023promptsrc,wu2024cascade} (16-shot) on the same backbone (ViT-B/16). We show that through context-aware pretraining, simple \textit{training-free} metric classifiers can be made highly competitive, strongly outperforming specifically tuned optimization approaches. %\vspace{-1em} % While orthogonal, w
+    }
+    \label{tab:comparison_learn_literature}
+    \vspace{-10pt}
+\end{table}
+
+\end{document}

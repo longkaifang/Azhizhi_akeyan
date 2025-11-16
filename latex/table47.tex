@@ -1,0 +1,137 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+\newcommand{\colorfirst}{255, 153, 153}
+\newcommand{\colorsecond}{255, 204, 153}
+\newcommand{\colorthird}{255, 255, 153}
+\definecolor{colorfirst}{RGB}{255, 153, 153}
+\definecolor{colorsecond}{RGB}{255, 204, 153}
+\definecolor{colorthird}{RGB}{255, 255, 153}
+
+\definecolor{colorfirst}{RGB}{255, 153, 153}
+\definecolor{colorsecond}{RGB}{255, 204, 153}
+\definecolor{colorthird}{RGB}{255, 255, 153}
+
+\begin{document}
+\begin{table}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Model & \multicolumn{1}{c}{CD $\downarrow$} & \multicolumn{1}{c}{JSD $\downarrow$} & \multicolumn{1}{c}{EMD $\downarrow$} & \multicolumn{1}{c}{Times (s) $\downarrow$} \\ \midrule
+LMSCNet~\cite{lmscnet} & 0.641 & 0.431 & - & \cellcolor[RGB]{\colorfirst}0.40 \\
+LODE~\cite{lode} & 1.029 & 0.451 & - & \cellcolor[RGB]{\colorsecond}1.76 \\
+MID~\cite{MID} & 0.503 & 0.470 & - & 6.42 \\
+PVD~\cite{pvd} & 1.256 & 0.498 & - & 262.54 \\
+LiDiff~\cite{LiDiff} & 0.434 & 0.444 & \cellcolor[RGB]{\colorfirst}22.15 & 30.38 \\
+LiDiff (Refined)~\cite{LiDiff} &  \cellcolor[RGB]{\colorsecond}0.375 &  \cellcolor[RGB]{\colorsecond}0.416 & \cellcolor[RGB]{\colorthird}23.16 & 30.55 \\ 
+\midrule
+ScoreLiDAR & \cellcolor[RGB]{\colorthird}0.406 & \cellcolor[RGB]{\colorthird}0.425 & \cellcolor[RGB]{\colorsecond}23.14 & \cellcolor[RGB]{\colorthird}5.16 \\
+ScoreLiDAR (Refined) & \cellcolor[RGB]{\colorfirst}0.342 & \cellcolor[RGB]{\colorfirst}0.399 & 23.26 & 5.37 \\ \bottomrule
+\end{tabular}%
+}
+\caption{The completion performance on the SemanticKITTI dataset. Colors denote the \colorbox[RGB]{\colorfirst}{1st}, \colorbox[RGB]{\colorsecond}{2nd}, and \colorbox[RGB]{\colorthird}{3rd} best-performing model. The sampling time is estimated based on the official code and the provided checkpoints.}
+\label{tab:completion1}
+\end{table}
+
+\begin{table}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Model & \multicolumn{1}{c}{CD $\downarrow$} & \multicolumn{1}{c}{JSD $\downarrow$} & \multicolumn{1}{c}{EMD $\downarrow$} & \multicolumn{1}{c}{Times (s) $\downarrow$} \\ \midrule
+LMSCNet~\cite{lmscnet} & 0.979 & 0.496 & - & 0.38 \\
+LODE~\cite{lode} & 1.565 & 0.483 & - & 1.64 \\
+MID~\cite{MID} & 0.637 & 0.476 & - & 6.23 \\
+LiDiff~\cite{LiDiff} & 0.564 & 0.459 & \cellcolor[RGB]{\colorfirst}21.98  & \cellcolor[RGB]{\colorthird}29.18 \\
+LiDiff (Refined)~\cite{LiDiff} & \cellcolor[RGB]{\colorthird}0.517 & \cellcolor[RGB]{\colorthird}0.446 & \cellcolor[RGB]{\colorthird}22.96 & 29.43 \\ \midrule
+ScoreLiDAR & \cellcolor[RGB]{\colorsecond}0.472 & \cellcolor[RGB]{\colorsecond}0.444 & \cellcolor[RGB]{\colorsecond}22.80 & \cellcolor[RGB]{\colorfirst}4.98 \\
+ScoreLiDAR (Refined) & \cellcolor[RGB]{\colorfirst}0.452 & \cellcolor[RGB]{\colorfirst}0.437 & 23.02 & \cellcolor[RGB]{\colorsecond}5.14 \\ \bottomrule
+\end{tabular}%
+}
+\caption{The completion performance on the KITTI-360 dataset.
+The meaning of notations is the same as those in.} 
+\label{tab:completion2}
+\end{table}
+
+\begin{table}[!t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Model & \multicolumn{1}{c}{CD $\downarrow$} & \multicolumn{1}{c}{JSD $\downarrow$} & \multicolumn{1}{c}{EMD $\downarrow$} & \multicolumn{1}{c}{Time (s) $\downarrow$} \\ \midrule
+LiDiff (50 steps)~\cite{LiDiff} & 0.434 & 0.444 & \cellcolor[RGB]{\colorfirst}22.15 & 30.38 \\
+LiDiff (50 steps Refined)~\cite{LiDiff} & \cellcolor[RGB]{\colorthird}0.375 & 0.416 & \cellcolor[RGB]{\colorthird}23.16 & 30.55 \\
+LiDiff (8 steps)~\cite{LiDiff} & 0.447 & 0.432 & 24.90 & 5.69 \\
+LiDiff (8 steps Refined)~\cite{LiDiff} & 0.411 & 0.406 & 25.74 & 5.92 \\ \midrule
+ScoreLiDAR (8 Steps Refined) & \cellcolor[RGB]{\colorsecond}0.342 & 0.399 & \cellcolor[RGB]{\colorsecond}23.14 & 5.37 \\
+ScoreLiDAR (4 Steps Refined) & \cellcolor[RGB]{\colorfirst}0.326 & \cellcolor[RGB]{\colorthird}0.386 & 23.98 & \cellcolor[RGB]{\colorthird}3.23 \\
+ScoreLiDAR (2 Steps Refined) & 0.403 & \cellcolor[RGB]{\colorfirst}0.379 & - & \cellcolor[RGB]{\colorsecond}1.85 \\
+ScoreLiDAR (1 Steps Refined) & 0.548 & \cellcolor[RGB]{\colorsecond}0.384 & - & \cellcolor[RGB]{\colorfirst}1.10 \\ \bottomrule
+\end{tabular}%
+}
+\caption{Ablation study of different sampling steps on the SemanticKITTI dataset.}
+\label{tab:ablation2}
+\end{table}
+
+\end{document}
