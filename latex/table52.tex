@@ -1,0 +1,133 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+\definecolor{marron}{HTML}{CC88B0}
+
+\begin{document}
+\begin{table*}[!t]
+    \centering
+    \resizebox{\linewidth}{!}
+    {
+    \begin{tabular}{lllccccc}
+    \toprule
+    \multirow{2}*{\textbf{Source}} & \multirow{2}*{\textbf{Family}} & \multirow{2}*{\textbf{Version}} & \multicolumn{3}{c}{\textbf{Answer Correctness} ($\uparrow$)} & \multicolumn{2}{c}{\textbf{Invocation Error} ($\downarrow$)} \\ \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+   & & & \textbf{Direct} & \textbf{Mandatory} & \textbf{Free} & \textbf{Query} & \textbf{Instance} \\ \midrule % \cmidrule(lr){1-3} \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+    & & \textit{Avg.} & \textit{19.83} & \textit{32.12} & \textit{32.84} & \textit{18.72} & \textit{8.68} \\ \midrule % \cmidrule(lr){1-3} \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+    % & \multicolumn{6}{l}{\textit{LLaMA3.1 Families}} \\ 
+      \multirow{6}*{Open-Source} & \multirow{2}*{LLaMA3.1} & Instruct-8B & \cellcolor{marron!18}13.17 & \cellcolor{marron!60}12.76 & \cellcolor{marron!57}13.47  & \cellcolor{marron!69}41.61 & \cellcolor{marron!39}21.10\\
+      & &Instruct-70B & \cellcolor{marron!3}18.79 & \cellcolor{marron!39}19.10 & \cellcolor{marron!60}12.76 & \cellcolor{marron!51}35.08 & \cellcolor{marron!18}14.24 \\ \cmidrule{2-8} % \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+      % & \multicolumn{6}{l}{\textit{Qwen2.5 Families}} \\ 
+      & \multirow{4}*{Qwen2.5} & Instruct-7B & \cellcolor{marron!24}11.46 & \cellcolor{marron!69}9.85 & \cellcolor{marron!48}16.18 & \cellcolor{marron!30}28.84 & \cellcolor{teal!3}7.09 \\
+      & & Instruct-14B & \cellcolor{marron!6}17.39 & \cellcolor{marron!18}26.38 & \cellcolor{marron!18}26.13 & \cellcolor{teal!9}15.78 & \cellcolor{teal!6}6.82 \\
+      & & Instruct-32B & \cellcolor{teal!3}20.00 & \cellcolor{marron!21}25.03 & \cellcolor{marron!30}22.61 & \cellcolor{teal!18}12.46 & \cellcolor{teal!15}3.46 \\
+      & & Instruct-72B & \cellcolor{marron!6}17.89 & \cellcolor{teal!39}45.43 & \cellcolor{teal!18}38.29 & \cellcolor{teal!15}13.27 & \cellcolor{teal!12}4.93 \\ \midrule % \cmidrule(lr){1-3} \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+      % & \multicolumn{6}{l}{\textit{Gemini1.5 Families}}\\
+      \multirow{8}*{Closed-Source} & \multirow{2}*{Gemini1.5} & flash-002 & \cellcolor{marron!3}18.59 & \cellcolor{marron!9}29.35 & \cellcolor{marron!1}32.76 & \cellcolor{teal!15}13.59 & \cellcolor{teal!6}6.69 \\
+      & & pro-002 & \cellcolor{marron!3}18.89 & \cellcolor{marron!3}31.16 & \cellcolor{teal!3}33.07 & \cellcolor{teal!12}14.57 & \cellcolor{teal!6}6.61 \\ \cmidrule{2-8} % \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+      % & \multicolumn{6}{l}{\textit{Claude3.5 Families}}\\
+      & \multirow{2}*{Claude3.5} & Haiku & \cellcolor{teal!51}36.08 & \cellcolor{teal!18}38.09 & \cellcolor{teal!36}44.72 & \cellcolor{marron!15}23.48 & \cellcolor{marron!21}15.81 \\
+      & & Sonnet & \cellcolor{teal!24}27.14 & \cellcolor{teal!21}39.90 & \cellcolor{teal!39}45.23 & \cellcolor{marron!3}19.60 & \cellcolor{marron!21}15.83 \\ \cmidrule{2-8} % \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){7-8}
+      % & \multicolumn{6}{l}{\textit{GPT Families}}\\
+      & \multirow{4}*{GPT} & 3.5-Turbo & \cellcolor{marron!6}17.09 & \cellcolor{teal!9}35.38 & \cellcolor{teal!12}36.58 & \cellcolor{teal!21}11.76 & \cellcolor{teal!6}6.03 \\
+      & & 4o-mini & \cellcolor{marron!1}19.40 & \cellcolor{teal!24}40.20 & \cellcolor{teal!33}43.42 & \cellcolor{teal!21}11.66 & \cellcolor{teal!15}3.58 \\
+      & & 4-Turbo & \cellcolor{marron!3}18.59 & \cellcolor{teal!45}47.94 & \cellcolor{teal!42}46.83 & \cellcolor{teal!24}10.95 & \cellcolor{teal!12}4.97 \\
+      & & 4o & \cellcolor{teal!12}23.12 & \cellcolor{teal!51}49.04 & \cellcolor{teal!45}47.74 & \cellcolor{teal!27}9.45 & \cellcolor{teal!12}4.31 \\
+      \bottomrule
+    \end{tabular}
+    }
+    \caption{Performance of various LLMs on ToolHop, including answer correctness and invocation error. `Direct,' `Mandatory,' and `Free' denote the direct answer, mandatory tool use, and free choice scenarios, respectively. `Query' and `Instance' refer to the percentage of queries and tool invocation instances with errors, respectively. `\textit{Avg.}' represents the average across all LLMs. Values above the average are highlighted in \colorbox{teal}{teal}, and those below are highlighted in \colorbox{marron}{maroon}, with darker shades indicating larger deviations.}
+    % \vspace{-4mm}
+    \label{tab:result}
+\end{table*}
+
+
+\begin{table*}[h]
+    \centering
+    \resizebox{\linewidth}{!}
+    {
+    \begin{tabular}{lccccccc}
+    \toprule
+       \multirow{2}*{\textbf{Benchmarks}} &  \multirow{2}*{\textbf{\# Tools}} &  \multirow{2}*{\textbf{\# Instances}} &  \multirow{2}*{\textbf{Multi-Tool?}} &  \textbf{Meaningful} & \textbf{Locally} & \textbf{Detailed} & \textbf{Verifiable} \\
+       & & & &  \textbf{Interdependencies?} &  \textbf{Executable Tools?} &  \textbf{Feedback?} &  \textbf{Answers?} \\
+\midrule
+API-Bank~\cite{APIBank} & 73 & 314 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} \\
+ToolAlpaca~\cite{Toolalpaca} & 426 & 3938 & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} \\
+RestBench~\cite{RestGPT} & 94 & 157 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} \\
+ToolBench~\cite{Toolllm} & 16464 & 126484 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} \\
+MetaTool~\cite{metatool} & 199 & 21127 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} \\
+TaskBench~\cite{TaskBench} & 103 & 23271 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} \\
+T-Eval~\cite{TEval} & 15 & 533 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} \\
+ToolEyes~\cite{ToolEyes} & 568 & 382 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} \\
+UltraTool~\cite{Ultra} & 2032 & 5824 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} \\
+Seal-Tools~\cite{Sealtools} & 4076 & 14076 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} \\
+AnyToolBench~\cite{anytool} & - & 400 & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} \\
+BFCL v3 (multi-turn)~\cite{BFCL} & - & 1000 & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{red}{\texttimes} & \textcolor{red}{\texttimes} & \textcolor{green!50!black}{\checkmark} \\
+ToolHop & 3912 & 995 & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} & \textcolor{green!50!black}{\checkmark} \\
+\bottomrule
+    \end{tabular}
+    }
+    \caption{A comparison between ToolHop and existing benchmarks related to tool use.}
+    \label{tab:comparison}
+\end{table*}
+
+\end{document}

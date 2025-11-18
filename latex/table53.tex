@@ -1,0 +1,257 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{pifont} %182/183/184
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb} 
+\usepackage{microtype}
+%\usepackage{subfigure}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{utfsym}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+\definecolor{lightblue}{rgb}{0.761,0.894,0.937} % RGB(194, 228, 239)
+\definecolor{white}{rgb}{0.965,0.973,0.988} % White
+\definecolor{lightpurple}{rgb}{0.914,0.870,0.933} % RGB(233, 222, 299)
+\colorlet{dark-blue}{blue!70!black}
+
+
+\begin{document}
+\begin{table}[tbp]
+  \centering
+   \renewcommand{\arraystretch}{1.05}
+  \resizebox{\linewidth}{!}{
+\begin{tabular}{ccccccc}
+\toprule
+\multicolumn{7}{c}{GTAV → Cityscapes (Citys) + BDD100K (BDD) + Mapillary (Map)} \\
+\midrule
+      VFM type & Fine-tune Method & Trainable Params & Citys & BDD   & Map   & Avg. \\
+\midrule
+\multirow{5}[1]{*}{\makecell{CLIP \cite{clip} \\ (ViT-Large)}} & Full  & 304.20M & 51.3  & 47.6  & 54.3  & 51.1  \\
+      & Freeze & 0M    & 53.7  & 48.7  & 55.0  & 52.5  \\
+      & LoRA \cite{hu2021lora} & 0.79M & 54.0 & 49.8 & 55.1 & 53.0  \\
+      & VPT \cite{jia2022visual}   & 3.69M & 54.0 & 51.8 & 57.5 & 54.4 \\
+      & Rein \cite{Wei_2024_CVPR} & 2.99M & 57.1  & \cellcolor[rgb]{ .886,  .937,  .855}54.7  & \cellcolor[rgb]{ .886,  .937,  .855}60.5  & \cellcolor[rgb]{ .886,  .937,  .855}57.4  \\
+      & VQT \cite{tu2023visual} & 3.01M & 54.3 & 51.2 & 56.7 & 55.3  \\
+      & ChildTune \cite{xu2021raise} & 15.21M & \cellcolor[rgb]{ .886,  .937,  .855}57.9 & 53.4 & 58.2 & 56.5  \\
+      & Ours & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{59.2} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{57.5} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{61.0} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{59.2} \\
+\midrule
+\multirow{5}[1]{*}{\makecell{MAE \cite{he2022mae} \\ (Huge))}} & Full  & 304.20M & 53.7  & \cellcolor[rgb]{ .886,  .937,  .855}50.8  & 58.1  & 54.2  \\
+      & Freeze & 0M  & 43.3 & 37.8 & 48.0 & 43.0  \\
+      & LoRA \cite{hu2021lora} & 0.79M & 44.6 & 38.4 & 52.5 & 45.2  \\
+      & VPT \cite{jia2022visual}   & 3.69M  & 52.7 & 50.2 & 57.6 & 53.5 \\
+      & Rein \cite{Wei_2024_CVPR}  & 2.99M & 55.0  & 49.3  & \cellcolor[rgb]{ .886,  .937,  .855}58.6  & 54.3  \\
+      & VQT \cite{tu2023visual} & 3.01M & 53.3 & 50.3 & 57.7 & 53.8  \\
+      & ChildTune \cite{xu2021raise} & 15.21M & \cellcolor[rgb]{ .886,  .937,  .855}55.4 & 50.6 & 58.1 & \cellcolor[rgb]{ .886,  .937,  .855}54.7  \\
+      & Ours & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{56.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{51.9} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{59.7}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{56.1} \\
+\midrule
+\multirow{5}[2]{*}{\makecell{SAM \cite{kirillov2023sam} \\ (Huge)}} & Full  & 632.18M & 57.6  & 51.7  & 61.5  & 56.9  \\
+      & Freeze & 0M    & 57.0  & 47.1  & 58.4  & 54.2  \\
+      & LoRA \cite{hu2021lora} & 0.79M & 57.4 & 47.7 & 58.4 & 54.5  \\
+      & VPT \cite{jia2022visual}   & 3.69M & 56.3  & 52.7  & 57.8  & 55.6  \\
+      & Rein \cite{Wei_2024_CVPR}  & 2.99M & 59.6  & 52.0  & \cellcolor[rgb]{ .886,  .937,  .855}62.1  & \cellcolor[rgb]{ .886,  .937,  .855}57.9  \\
+      & VQT \cite{tu2023visual} & 3.01M & 56.7 & \cellcolor[rgb]{ .886,  .937,  .855}53.9 & 59.3 & 56.6  \\
+      & ChildTune \cite{xu2021raise} & 15.21M & \cellcolor[rgb]{ .886,  .937,  .855}60.8 & 49.6 & 61.2 & 57.2   \\
+      & Ours & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{60.9} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{63.9}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{59.7} \\
+\midrule
+\multirow{7}[2]{*}{\makecell{EVA02 \cite{eva02} \\
+(Large)}} & Full  & 304.20M & 62.1  & 56.2  & \cellcolor[rgb]{ .886,  .937,  .855}64.6  & 60.9  \\
+      & LoRA \cite{hu2021lora}  & 0.79M & 55.5  & 52.7  & 58.3  & 55.5  \\
+      & AdaptFormer\cite{chen2022adaptformer} & 3.17M & 63.7  & 59.9  & 64.2  & 62.6  \\
+      & VPT\cite{jia2022visual}   & 3.69M & 62.2  & 57.7  & 62.5  & 60.8  \\
+      & Rein\cite{Wei_2024_CVPR}  & 2.99M & \cellcolor[rgb]{ .886,  .937,  .855}65.3  & \cellcolor[rgb]{ .886,  .937,  .855}61.1  & 63.9  & \cellcolor[rgb]{ .886,  .937,  .855}63.4  \\
+      & VQT\cite{tu2023visual} & 3.01M & 61.3  & 55.1  & 62.2  & 59.5  \\
+      & ChildTune\cite{xu2021raise} & 15.21M & 61.6  & 59.3  & 62.3  & 61.1  \\
+      & Ours & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{65.8} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{61.5} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{66.0} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{64.4} \\
+\midrule
+\multirow{7}[2]{*}{\makecell{DINOv2\cite{oquab2023dinov2} \\
+(ViT-Large)}} & Full  & 304.20M & 63.7  & 57.4  & 64.2  & 61.7  \\
+      & LoRA\cite{hu2021lora}  & 0.79M  & 65.2  & 58.3  & 64.6  & 62.7  \\
+      & AdaptFormer\cite{chen2022adaptformer} & 3.17M & 64.9  & 59.0  & 64.2  & 62.7  \\
+      & VQT \cite{jia2022visual}  & 3.01M & 64.6  & 59.0  & 65.7  & 63.1  \\
+      & Rein\cite{Wei_2024_CVPR}  & 2.99M  & \cellcolor[rgb]{ .886,  .937,  .855}66.4  & \cellcolor[rgb]{ .886,  .937,  .855}60.4  & \cellcolor[rgb]{ .886,  .937,  .855}66.1  & \cellcolor[rgb]{ .886,  .937,  .855}64.3  \\
+      & ChildTune\cite{xu2021raise} & 15.21M & 65.6  & 59.3  & 65.3  & 63.4  \\
+      & Ours  & 15.21M  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{68.2} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{63.3} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{68.0} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{66.5} \\
+\midrule
+EVA02  & VLTSeg~\cite{hummer2024strong} & 304.2M      & 65.3  & 58.3  & 66.0  & 63.2  \\
+DINOV2 & SDT~\cite{yi2024learning} &  6.94M  & 68.1  & \cellcolor[rgb]{ .886,  .937,  .855} 61.6  & 67.7  & 65.8  \\
+CLIP+SAM & CLOUDS ~\cite{pak2024textual} &    304.2M   & 60.2  & 57.4  & 67.0  & 61.5  \\
+EVA02 & tqdm ~\cite{pak2024textual} &   304.2M    & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{68.9} & 59.2  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{70.1} & \cellcolor[rgb]{ .886,  .937,  .855} 66.1  \\
+EVA02 & Ours  &   15.21M    & 65.8  & 61.5  & 66.0  & 64.4  \\
+DINOV2 & Ours  &  15.21M     & \cellcolor[rgb]{ .886,  .937,  .855}68.2  & \cellcolor[rgb]{ .741,  .843,  .933}\textbf{63.3} & \cellcolor[rgb]{ .886,  .937,  .855}68.7  & \cellcolor[rgb]{ .741,  .843,  .933}\textbf{66.6} \\
+\bottomrule
+\end{tabular}
+}
+ \setlength{\abovecaptionskip}{0.05 cm}
+  \caption{Performance and Trainable Parameters 
+Comparison with the proposed FisherTune across Multiple VFMs as Backbones under the GTAV → Cityscapes (Citys) + BDD100K (BDD) + Mapillary (Map) generalization setting.}
+  \label{exp_vfm_all}
+  \vspace{-0.6cm}
+\end{table}
+
+\begin{table*}[t]
+  \centering
+   \renewcommand{\arraystretch}{1.05}
+  \resizebox{\linewidth}{!}{
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{tabular}{ccccccccccccccccccccccc}
+\toprule
+      & \multicolumn{22}{c}{Cityscapes → BDD100K} \\
+\midrule
+      & Fine-tune Method & Trainable Params & road  & side. & build. & wall  & fence & pole  & light & sign  & vege  & terr. & sky   & pers. & rider & car   & truck & bus   & train & moto. & bicy. & mIoU \\
+\midrule
+\multirow{6}[2]{*}{DINOv2} & Full  & 304.20M & 89.0  & 44.5  & 89.6  & 51.1  & 46.4  & 49.2  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{60.0} & 38.9  & 89.1  & 47.5  & \cellcolor[rgb]{ .886,  .937,  .855} 91.7  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{75.8} & \cellcolor[rgb]{ .886,  .937,  .855} 48.2  & 91.7  & 52.5  & \cellcolor[rgb]{ .886,  .937,  .855} 82.9  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{81.0} & 30.4  & 49.9  & 63.7  \\
+      & Freeze & 0M    & 92.1  & 55.2  & 90.2  & 57.2  & 48.5  & 49.5  & 56.7  & \cellcolor[rgb]{ .886,  .937,  .855} 47.7  & 89.3  & 47.8  & 91.1  & \cellcolor[rgb]{ .886,  .937,  .855} 74.2  & 46.7  & 92.2  & 62.6  & 77.5  & 47.7  & 29.6  & 47.2  & 63.3  \\
+      & REIN \cite{Wei_2024_CVPR} & 2.99M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{92.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{59.1} & \cellcolor[rgb]{ .886,  .937,  .855} 90.7  & 58.3  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{53.7} & 51.8  & 58.2  & 46.4  & 89.8  & \cellcolor[rgb]{ .886,  .937,  .855} 49.4  & 90.8  & 73.9  & 43.3  & 92.3  & \cellcolor[rgb]{ .886,  .937,  .855} 64.3  & 81.6  & 70.9  & 40.4  & 54.0  & \cellcolor[rgb]{ .886,  .937,  .855} 66.4  \\
+      & VQT \cite{tu2023visual} & 3.01M & 88.3  & 49.9  & 85.9  & 50.7  & 47.9  & 44.3  & 55.6  & 39.2  & 86.1  & 42.8  & 87.5  & 71.3  & 45.4  & 89.4  & 53.5  & 82.6  & \cellcolor[rgb]{ .886,  .937,  .855} 74.9  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{46.1} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{57.4} & 63.1  \\
+      & ChildTune \cite{xu2021raisechildlargelanguage} & 15.21M & 92.1  & \cellcolor[rgb]{ .886,  .937,  .855} 56.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{91.0} & \cellcolor[rgb]{ .886,  .937,  .855} 58.8  & 46.9  & \cellcolor[rgb]{ .886,  .937,  .855} 52.0  & 58.6  & 47.2  & \cellcolor[rgb]{ .886,  .937,  .855} 90.8  & 47.9  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{93.3} & 72.0  & 47.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{93.0} & 63.9  & 76.2  & 47.9  & 28.8  & 48.3  & 63.8  \\
+      & Ours  & 15.21M & \cellcolor[rgb]{ .886,  .937,  .855} 92.1  & 55.4  & 90.2  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{58.9} & \cellcolor[rgb]{ .886,  .937,  .855} 50.9  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.5} & \cellcolor[rgb]{ .886,  .937,  .855} 59.8  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{49.1} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{92.5} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{52.8} & 91.0  & 73.7  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{51.5} & \cellcolor[rgb]{ .886,  .937,  .855} 92.7  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{67.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{82.9} & 72.8  & \cellcolor[rgb]{ .886,  .937,  .855} 44.3  & \cellcolor[rgb]{ .886,  .937,  .855} 54.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{67.7} \\
+\midrule
+\multirow{6}[2]{*}{EVA02} & Full  & 304.20M & 89.3  & 46.9  & 89.9  & 47.7  & 45.6  & 50.1  & \cellcolor[rgb]{ .886,  .937,  .855} 56.8  & 42.2  & 88.8  & 48.4  & 89.9  & 75.8  & 49.0  & 90.5  & 45.3  & 69.2  & 55.9  & 44.4  & 55.1  & 62.1  \\
+      & REIN \cite{Wei_2024_CVPR} & 0M    & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{93.1} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{52.7} & 88.0  & 47.4  & 31.1  & 41.7  & 46.0  & 39.6  & 85.7  & 41.4  & 89.5  & 67.5  & 39.7  & 89.0  & 47.0  & \cellcolor[rgb]{ .886,  .937,  .855} 72.8  & 46.3  & 19.2  & 35.2  & 56.5  \\
+      & VQT \cite{tu2023visual} & 2.99M & 91.7  & \cellcolor[rgb]{ .886,  .937,  .855} 51.8  & 90.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{52.8} & \cellcolor[rgb]{ .886,  .937,  .855} 48.4  & 48.2  & 56.0  & 42.0  & 89.1  & 44.1  & 90.2  & 74.2  & 47.0  & 91.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.5} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{84.1} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{78.9} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{47.2} & 59.4  & \cellcolor[rgb]{ .886,  .937,  .855} 65.3  \\
+      & ChildTune \cite{xu2021raisechildlargelanguage} & 3.01M & 90.1  & 46.6  & \cellcolor[rgb]{ .886,  .937,  .855} 91.1  & 46.9  & 46.4  & \cellcolor[rgb]{ .886,  .937,  .855} 51.7  & 56.5  & 43.2  & 89.3  & 49.6  & \cellcolor[rgb]{ .886,  .937,  .855} 92.3  & 75.0  & 50.3  & 90.3  & 44.6  & 71.8  & \cellcolor[rgb]{ .886,  .937,  .855} 57.4  & 44.0  & 55.8  & 62.8  \\
+      & ChildTune & 15.21M & 91.4  & 50.7  & 88.9  & 47.9  & 47.4  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.6} & 56.3  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{45.9} & \cellcolor[rgb]{ .886,  .937,  .855} 91.2  & \cellcolor[rgb]{ .886,  .937,  .855} 50.0  & 91.2  & \cellcolor[rgb]{ .886,  .937,  .855} 76.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{52.2} & \cellcolor[rgb]{ .886,  .937,  .855} 92.3  & \cellcolor[rgb]{ .886,  .937,  .855} 48.0  & 69.3  & 55.2  & 43.9  & \cellcolor[rgb]{ .886,  .937,  .855} 59.8  & 63.8  \\
+      & Ours  & 15.21M & \cellcolor[rgb]{ .886,  .937,  .855} 92.6  & 49.9  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{95.9} & \cellcolor[rgb]{ .886,  .937,  .855} 51.1  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{53.0} & 50.8  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{59.8} & \cellcolor[rgb]{ .886,  .937,  .855} 45.7  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{92.9} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{94.0} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{83.5} & \cellcolor[rgb]{ .886,  .937,  .855} 52.2  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{93.9} & 45.1  & 69.4  & 57.1  & \cellcolor[rgb]{ .886,  .937,  .855} 47.2  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{62.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{65.8} \\
+\midrule
+      & \multicolumn{22}{c}{Cityscapes → ACDC} \\
+\midrule
+\multirow{6}[2]{*}{DINOv2} & Full  & 304.20M & 92.8  & 75.0  & 87.4  & 55.7  & 54.1  & 55.6  & 71.2  & 69.6  & 82.4  & 56.0  & 92.2  & 66.8  & 45.6  & 89.0  & 79.7  & \cellcolor[rgb]{ .886,  .937,  .855} 87.9  & 87.5  & 51.4  & 62.7  & 71.7  \\
+      & Freeze & 0M    & 86.0  & 68.1  & 80.2  & 52.4  & 47.8  & 48.2  & 65.5  & 65.3  & 80.0  & 54.7  & 86.2  & 65.0  & 44.9  & 86.4  & 73.3  & 80.5  & 86.9  & 50.1  & 60.9  & 67.5  \\
+      & REIN \cite{Wei_2024_CVPR} & 2.99M & \cellcolor[rgb]{ .886,  .937,  .855} 94.6  & \cellcolor[rgb]{ .886,  .937,  .855} 78.3  & \cellcolor[rgb]{ .886,  .937,  .855} 92.0  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{61.9} & \cellcolor[rgb]{ .886,  .937,  .855} 55.0  & \cellcolor[rgb]{ .886,  .937,  .855} 64.8  & \cellcolor[rgb]{ .886,  .937,  .855} 73.8  & \cellcolor[rgb]{ .886,  .937,  .855} 72.7  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{88.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{67.4} & \cellcolor[rgb]{ .886,  .937,  .855} 95.4  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{77.1} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{60.2} & \cellcolor[rgb]{ .886,  .937,  .855} 92.6  & \cellcolor[rgb]{ .886,  .937,  .855} 84.1  & 86.9  & \cellcolor[rgb]{ .886,  .937,  .855} 92.5  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{67.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{68.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{77.6} \\
+      & VQT \cite{tu2023visual} & 3.01M & 93.3  & 76.4  & 89.2  & 55.0  & 53.9  & 53.9  & 72.0  & 67.3  & 83.4  & 55.3  & 95.1  & 67.7  & 47.0  & 90.5  & 81.6  & 86.3  & 88.2  & 50.1  & 61.9  & 72.0  \\
+      & ChildTune \cite{xu2021raisechildlargelanguage} & 15.21M & 92.9  & 72.8  & 84.7  & 56.6  & 54.1  & 56.8  & 70.9  & 67.7  & 82.3  & 55.7  & 93.6  & 65.9  & 45.3  & 89.6  & 77.6  & 87.8  & 87.0  & 52.5  & 62.2  & 71.4  \\
+      & Ours  & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{95.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{79.0} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{96.5} & \cellcolor[rgb]{ .886,  .937,  .855} 60.5  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{58.3} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{64.9} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{75.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{77.7} & \cellcolor[rgb]{ .886,  .937,  .855} 85.0  & \cellcolor[rgb]{ .886,  .937,  .855} 61.3  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{98.6} & \cellcolor[rgb]{ .886,  .937,  .855} 73.6  & \cellcolor[rgb]{ .886,  .937,  .855} 51.5  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{94.8} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{85.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{94.7} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{93.8} & \cellcolor[rgb]{ .886,  .937,  .855} 59.0  & \cellcolor[rgb]{ .886,  .937,  .855} 66.7  & \cellcolor[rgb]{ .886,  .937,  .855} 77.5  \\
+\midrule
+\multirow{6}[2]{*}{EVA02} & Full  & 304.20M & 90.2  & 68.8  & 81.0  & 53.7  & 49.9  & 48.1  & 68.7  & 64.2  & 80.1  & 57.4  & 88.1  & 68.8  & 41.8  & 89.7  & 74.1  & 82.1  & 89.7  & 50.0  & 56.8  & 68.6  \\
+      & Freeze & 0M    & 86.0  & 60.5  & 76.3  & 49.0  & 41.7  & 46.1  & 60.5  & 61.0  & 72.1  & 49.8  & 77.7  & 56.7  & 40.6  & 80.3  & 68.3  & 77.2  & 85.5  & 46.7  & 56.4  & 62.8  \\
+      & REIN \cite{Wei_2024_CVPR} & 2.99M & 88.7  & \cellcolor[rgb]{ .886,  .937,  .855} 71.8  & \cellcolor[rgb]{ .886,  .937,  .855} 81.7  & \cellcolor[rgb]{ .886,  .937,  .855} 55.2  & 51.7  & \cellcolor[rgb]{ .886,  .937,  .855} 50.5  & \cellcolor[rgb]{ .886,  .937,  .855} 70.5  & \cellcolor[rgb]{ .886,  .937,  .855} 64.9  & \cellcolor[rgb]{ .886,  .937,  .855} 83.7  & 59.0  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{90.3} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{72.0} & \cellcolor[rgb]{ .886,  .937,  .855} 48.3  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{93.0} & \cellcolor[rgb]{ .886,  .937,  .855} 79.3  & \cellcolor[rgb]{ .886,  .937,  .855} 83.3  & \cellcolor[rgb]{ .886,  .937,  .855} 91.3  & 50.8  & \cellcolor[rgb]{ .886,  .937,  .855} 62.0  & \cellcolor[rgb]{ .886,  .937,  .855} 70.9  \\
+      & VQT \cite{tu2023visual} & 3.01M & \cellcolor[rgb]{ .886,  .937,  .855} 90.3  & 71.2  & 81.4  & 54.3  & \cellcolor[rgb]{ .886,  .937,  .855} 53.1  & 49.1  & 67.9  & 64.3  & 82.0  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{60.5} & 86.9  & 66.8  & 41.3  & 89.3  & 76.6  & 81.7  & 91.3  & 47.2  & 55.7  & 69.0  \\
+      & ChildTune \cite{xu2021raisechildlargelanguage} & 15.21M & 86.4  & 68.8  & 81.0  & 54.4  & 50.6  & 48.9  & 69.6  & 64.5  & 83.2  & 57.8  & 88.2  & 69.0  & 47.9  & 90.2  & 74.8  & 82.8  & 90.3  & \cellcolor[rgb]{ .886,  .937,  .855} 51.0  & 61.4  & 69.5  \\
+      & Ours  & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{90.5} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{75.2} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{83.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{58.8} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{52.2} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{73.1} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{66.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{85.7} & \cellcolor[rgb]{ .886,  .937,  .855} 60.5  & \cellcolor[rgb]{ .886,  .937,  .855} 90.2  & \cellcolor[rgb]{ .886,  .937,  .855} 70.7  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{51.5} & \cellcolor[rgb]{ .886,  .937,  .855} 92.3  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{82.6} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{88.2} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{91.9} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{54.0} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{62.4} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{72.9} \\
+\bottomrule
+\end{tabular}%
+
+}
+  \setlength{\abovecaptionskip}{0.05 cm}
+  \caption{DGSS generalization performance for each category from the Cityscapes source domain to mixed-domain BDD100K and ACDC, with comparison methods including adaptor-based Rein \cite{Wei_2024_CVPR} and selective parameter fine-tuning methods VQT \cite{tu2023visual} and ChildTune\cite{xu2021raisechildlargelanguage}.}
+  \label{exp_vfm_bdd}
+  \vspace{-0.3cm}
+\end{table*}
+
+\begin{table*}[t]
+  \centering
+   \renewcommand{\arraystretch}{1.05}
+  \resizebox{\linewidth}{!}{
+    % Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{tabular}{cccccccccc}
+\toprule
+      & \multicolumn{8}{c}{Cityscapes → Adverse Weather}              &  \\
+\midrule
+      & Fine-tune Method & Trainable Params & Foggy Zurich \cite{Sakaridis_2018_CVPR}  & Foggy Driving \cite{Sakaridis_2018_CVPR} & Dark Zurich \cite{sakaridis2019guided} & Nighttime Driving \cite{sakaridis2021nighttime} & ACDC-Rain \cite{sakaridis2021acdc}  & ACDC-Snow \cite{sakaridis2021acdc} & mIoU \\
+\midrule
+\multirow{5}[2]{*}{\makecell{ DINOv2 \cite{dinov2} \\
+(Large)}} & Full  & 304.20M & 50.4  & 55.3  & 62.7  & 47.7  & 75.2  & 76.8  & 61.3  \\
+      & Freeze & 0M    & 50.3  & 43.7  & 54.3  & 40.8  & 66.1  & 71.7  & 54.5  \\
+      & REIN \cite{Wei_2024_CVPR} & 2.99M & \cellcolor[rgb]{ .886,  .937,  .855}55.5  & \cellcolor[rgb]{ .886,  .937,  .855}58.2  & 64.3  & 50.3  & \cellcolor[rgb]{ .886,  .937,  .855}78.2  & \cellcolor[rgb]{ .886,  .937,  .855}79.5  & \cellcolor[rgb]{ .886,  .937,  .855}64.3  \\
+      & VQT \cite{tu2023visual}  & 3.01M  & 54.1  & 57.1  & 61.9  & 47.4  & 76.1  & 75.3  & 62.0  \\
+      & ChildTune \cite{xu2021raisechildlargelanguage} & 15.21M & 55.2  & 56.9  & \cellcolor[rgb]{ .886,  .937,  .855}64.5  & \cellcolor[rgb]{ .886,  .937,  .855}50.7  & 77.7  & 78.3  & 63.9  \\
+      & Ours & 15.21M & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{56.9}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{60.0}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{66.6}  &\cellcolor[rgb]{ .741,  .843,  .933} \textbf{53.2}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{78.6}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{82.2}  & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{66.3}  \\
+\bottomrule
+\end{tabular}%
+}
+ \setlength{\abovecaptionskip}{0.05 cm}
+  \caption{DGSS performance comparison for Cityscapes as the source domain under diverse weather conditions.}
+  \label{exp_vfm_aw}
+  \vspace{-0.5cm}
+\end{table*}
+
+\begin{table}[t]
+  \centering
+   \renewcommand{\arraystretch}{1.05}
+  \resizebox{\linewidth}{!}{
+\begin{tabular}{cccc}
+\toprule
+      &       & Cityscapes →BDD100K & Cityscapes →ACDC \\
+\midrule
+\multirow{9}[4]{*}{\makecell{ EVA02 \cite{eva02} \\
+(Large)}} & Full  & 62.1  & 68.6  \\
+      & Freeze & 56.5  & 62.8  \\
+\cmidrule{2-4}      &  Random  & 61.1  & 67.6  \\
+      &   Random  $Q$ & 62.8  & 69.1  \\
+      &   Random  $K$ & 61.9  & 68.1  \\
+      &   Random  $V$ & 62.9  & 69.2  \\
+      &   $  \mathbf{F}_{\boldsymbol{\theta}}$ & \cellcolor[rgb]{ .886,  .937,  .855} 63.8  & 69.5  \\
+      &   $\Delta \mathbf{F}_{\boldsymbol{\theta}}$& 63.1  & \cellcolor[rgb]{ .886,  .937,  .855} 71.3  \\
+      &   $\mathbf{DRF}_{\boldsymbol{\theta}}$ & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{65.8 (+3.7)} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{72.9 (+5.3)} \\
+\midrule
+\multirow{9}[4]{*}{\makecell{ DINOv2 \cite{dinov2} \\
+(Large)}} & Full  & 63.7  & 71.7  \\
+      & Freeze & 63.3  & 67.5  \\
+\cmidrule{2-4}      & Random  & 62.7  & 71.0  \\
+      &   Random  $Q$ & 63.2  & 72.0  \\
+      &   Random  $K$ & 63.5  & 72.3  \\
+      &   Random  $V$ & 63.2  & 72.9  \\
+      &   $  \mathbf{F}_{\boldsymbol{\theta}}$ & 63.8  & 71.4  \\
+      &   $\Delta \mathbf{F}_{\boldsymbol{\theta}}$ & \cellcolor[rgb]{ .886,  .937,  .855} 64.5  & \cellcolor[rgb]{ .886,  .937,  .855} 76.1  \\
+      &  $\mathbf{DRF}_{\boldsymbol{\theta}}$ & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{67.7 (+4.0)} & \cellcolor[rgb]{ .741,  .843,  .933} \textbf{77.5 (+5.8)} \\
+\bottomrule
+\end{tabular}%
+}
+ \setlength{\abovecaptionskip}{0.05 cm}
+  \caption{Ablation study on generalization with 5\% fine-tunable parameters in terms of mIoU.}
+  \label{exp_Ablation}
+  \vspace{-0.5cm}
+\end{table}
+
+\end{document}
